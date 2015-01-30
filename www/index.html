@@ -7,6 +7,8 @@
 
     <link href="lib/ionic/css/ionic.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
+    <link href="css/sprite.css" rel="stylesheet">
+
 
     <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
     <link href="css/ionic.app.css" rel="stylesheet">
@@ -24,21 +26,40 @@
   <body ng-app="starter">
 
     <ion-pane>
-      <ion-header-bar class="bar bar-stable bar-positive">
-       <h1 class="title"> <center>Notaso</center></h1>
+      <ion-header-bar class="bar bar-stable" id="header-custom">
+        <h1 class="title"> 
+              <center>
+                <img id="logo" src="./img/notaso-logo.png">
+                </img>
+              </center>
+        </h1>
       </ion-header-bar>
 
       <ion-content  ng-controller="profesorsCtrl" >
-        <div class="row">
-          <div class="col" data-tap-disabled="true">
+        <div id="search-row" class="row">
+          <div class="col" >
             <label class="item item-input">
               <i class="icon ion-search placeholder-icon"></i>
-              <input type="search" placeholder="Search Profesor" ng-model="query" ng-change="jsonProf()" >
+              <input id="search" type="search" placeholder="Busca un Profesor" ng-model="query" ng-change="jsonProf(query)" >
             </label>
           </div> 
         </div>
 
-        {{profesors}}
+        <!--data-tap-disabled="true"-->
+        
+        <div class="list" ng-repeat="profesor in profesors.results">
+          <a class="item item-thumbnail-right" href="#">
+            <div style="float:right;" class="gradeAlrg">
+            </div>
+            <h2>
+              {{profesor.first_name}} {{profesor.last_name}}
+            </h2>
+            <p>
+              Nine Inch Nails
+            </p>
+          </a>
+        </div>
+
       </ion-content>
     </ion-pane>
   </body>
