@@ -27,3 +27,37 @@ background-color: #0B4F84;
 border-top: 1px solid #134C75;
 border-bottom: 1px solid #134C75;
 }
+
+#profesor-list{
+	height: 60px;
+}
+
+#profesor-list>a
+{
+	padding-top: 8px; 
+	padding-bottom: 8px; 
+ 	padding-right: 10px; 
+ 	min-height: 0px; 
+}
+
+.department-label{
+	display: inline;
+	background-color:#d9534f;
+}
+
+.department-label-form
+{
+	padding: .2em .6em .3em;
+	font-size: 85%;
+	font-weight: 700;
+	line-height: 1;
+	color: #fff;
+	text-align: center;
+	white-space: nowrap;
+	vertical-align: baseline;
+	border-radius: .25em;
+}
+
+.grade{
+	margin-top:15px;
+}

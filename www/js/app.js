@@ -33,5 +33,10 @@
           $scope.profesors = (data);
         });
     };
+     $http.get("https://notaso.com/api/search/?",{
+                   params: {"q":"Huerta","format":"json"}})
+        .success(function(data){
+          $scope.profesors = (data);
+        });
   }]);
 })();
