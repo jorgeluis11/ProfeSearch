@@ -25,11 +25,13 @@
     
     $scope.profesors = [];
 
-    $scope.jsonProf = function(){
-       $http.get("https://notaso.com/api/search/?q=Huertas&format=json")
-      .success(function(data){
-        $scope.profesors = (data);
-      });
+    $scope.jsonProf = function(query){
+      if(query !== "")
+         $http.get("https://notaso.com/api/search/?",{
+                   params: {"q":query,"format":"json"}})
+        .success(function(data){
+          $scope.profesors = (data);
+        });
     };
   }]);
 })();
