@@ -1,1 +1,29 @@
 /* Empty. Add your own CSS if you like */
+
+#header-custom
+{
+	background-color:#f8f8f8; 
+	border-color:#e7e7e7;
+}
+
+#search
+{
+	-webkit-border-radius: 6px;
+-moz-border-radius: 6px;
+border-radius: 6px;
+
+}
+
+#logo
+{
+	padding: 5px;
+}
+
+#search-row
+{
+	color: #fff;
+text-align: center;
+background-color: #0B4F84;
+border-top: 1px solid #134C75;
+border-bottom: 1px solid #134C75;
+}
