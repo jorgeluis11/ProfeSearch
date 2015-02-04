@@ -61,3 +61,18 @@ border-bottom: 1px solid #134C75;
 .grade{
 	margin-top:15px;
 }
+
+#loading-container img{
+	display:block;
+	margin: 40% auto;
+}
+
+#title-modal{
+	background-color:#0B4F85;
+
+}
+
+#title-modal>h1
+{
+	color:white;
+}

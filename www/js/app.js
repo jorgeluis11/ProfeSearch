@@ -41,11 +41,6 @@
         });
     };
 
-    $scope.contact = {
-    name: 'Mittens Cat',
-    info: 'Tap anywhere on the card to open the modal'
-  }
-
   $ionicModal.fromTemplateUrl('../templates/profesor-modal.html', {
     scope: $scope,
     animation: 'slide-in-up'
@@ -55,10 +50,13 @@
   })  
 
   $scope.openModal = function(id) {
+    $scope.modal.loading = true;
     $http.get("https://notaso.com/api/professors/"+id,{
-              params: {"format":"json"}})
+              params: {"format":"json","comments":"true"}})
     .success(function(data){
       $scope.modal.profesor = data;
+      $scope.modal.loading = false;
+      console.log($scope.modal.loading)
     })
     $scope.modal.show()
   }
@@ -70,6 +68,16 @@
   $scope.$on('$destroy', function() {
     $scope.modal.remove();
   });
+
+  $http.get("https://notaso.com/api/search/",{
+                   params: {"q":"Huerta","format":"json"}})
+        .success(function(data){
+          $scope.profesors = (data);
+          $scope.loading = false;
+        }).error(function()
+        {
+          $scope.loading = false;
+        });
 
   }]);
 })();
