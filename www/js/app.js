@@ -21,7 +21,7 @@
 
   var app = angular.module("profesors",[])
 
-  app.controller("profesorsCtrl", ["$http",'$scope' ,function($http, $scope){
+  app.controller("profesorsCtrl", ["$http",'$scope','$ionicModal' ,function($http, $scope, $ionicModal){
     
     $scope.profesors = [];
 
@@ -33,5 +33,32 @@
           $scope.profesors = (data);
         });
     };
+
+    $scope.contact = {
+    name: 'Mittens Cat',
+    info: 'Tap anywhere on the card to open the modal'
+  }
+
+  $ionicModal.fromTemplateUrl('../templates/profesor-modal.html', {
+    scope: $scope,
+    animation: 'slide-in-left'
+  }).then(function(modal) {
+    modal.id = 'profesor-modal.html';
+    $scope.modal = modal
+  })  
+
+  $scope.openModal = function(profesor) {
+    $scope.modal.profesor = profesor;
+    $scope.modal.show()
+  }
+
+  $scope.closeModal = function() {
+    $scope.modal.hide();
+  };
+
+  $scope.$on('$destroy', function() {
+    $scope.modal.remove();
+  });
+
   }]);
 })();
