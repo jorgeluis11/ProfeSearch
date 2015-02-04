@@ -22,15 +22,22 @@
   var app = angular.module("profesors",[])
 
   app.controller("profesorsCtrl", ["$http",'$scope','$ionicModal' ,function($http, $scope, $ionicModal){
-    
+          $scope.loading = false;
+
     $scope.profesors = [];
 
     $scope.jsonProf = function(query){
+      $scope.loading = true;
+
       if(query !== "")
-         $http.get("https://notaso.com/api/search/?",{
+         $http.get("https://notaso.com/api/search/",{
                    params: {"q":query,"format":"json"}})
         .success(function(data){
           $scope.profesors = (data);
+          $scope.loading = false;
+        }).error(function()
+        {
+          $scope.loading = false;
         });
     };
 
@@ -41,14 +48,18 @@
 
   $ionicModal.fromTemplateUrl('../templates/profesor-modal.html', {
     scope: $scope,
-    animation: 'slide-in-left'
+    animation: 'slide-in-up'
   }).then(function(modal) {
-    modal.id = 'profesor-modal.html';
+    modal.id = 'profesor-modal';
     $scope.modal = modal
   })  
 
-  $scope.openModal = function(profesor) {
-    $scope.modal.profesor = profesor;
+  $scope.openModal = function(id) {
+    $http.get("https://notaso.com/api/professors/"+id,{
+              params: {"format":"json"}})
+    .success(function(data){
+      $scope.modal.profesor = data;
+    })
     $scope.modal.show()
   }
 
