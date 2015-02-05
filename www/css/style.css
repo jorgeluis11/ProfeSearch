@@ -1,5 +1,9 @@
 /* Empty. Add your own CSS if you like */
 
+body{
+	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif
+}
+
 #header-custom
 {
 	background-color:#f8f8f8; 
@@ -58,21 +62,87 @@ border-bottom: 1px solid #134C75;
 	border-radius: .25em;
 }
 
+.department-label-detail
+{
+	font-size: 1.5em !important;
+}
+
 .grade{
 	margin-top:15px;
 }
 
 #loading-container img{
 	display:block;
-	margin: 40% auto;
+	margin: 0 auto;
+	margin-top: 10%;
 }
+
+
+/*Profesor modal*/
 
 #title-modal{
 	background-color:#0B4F85;
-
 }
 
-#title-modal>h1
+#title-modal h1
 {
 	color:white;
 }
+
+#title-modal h4
+{
+	color:white;
+}
+
+.modal-size
+{
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+#info-container
+{
+	margin-left: 2%;
+}
+
+.list-comment-body
+{
+	overflow: none !important;
+	text-overflow: none !important;
+	white-space: normal !important;
+	font-size: 0.9em !important;
+}
+
+.list-comment
+{
+	margin-bottom: 0;
+	padding-bottom: 0;
+}
+.professor-grade
+{
+	margin: 20px 0;
+	font-size: 2.5em;
+}
+.professor-percent{
+	font-size: 1.6em;
+}
+
+.professor-promedip{
+	padding-bottom:0;
+}
+
+#table-detail tr td
+{
+	text-align: center;
+	padding: 10px;
+	font-size:1.2em;
+	border: 1px dotted rgba(100,100,100,0.2);
+}
+
+#table-detail tr td div
+{
+	margin: 0 auto;
+}
+

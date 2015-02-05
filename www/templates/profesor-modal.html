@@ -1,18 +1,91 @@
-<div class="modal" >
-  <ion-header-bar  id="title-modal">
-    <h1 class="title">{{modal.profesor.first_name}} {{modal.profesor.last_name}}</h1>
-  </ion-header-bar>
+<div class="modal modal-size" >
   <ion-content>
-    <div class="list">
-      <label class="item item-input">
-        <span class="input-label">Name</span>
-        <input type="text" ng-model="contact.name">
-      </label>
-      <label class="item item-input">
-        <span class="input-label">Info</span>
-        <input type="text" ng-model="contact.info">
-      </label>
+  <div id="title-modal">
+    <div class="row">
+      <div class="col">
+        <center>
+          <h1>  {{modal.profesor.first_name}} {{modal.profesor.  last_name}}
+          </h1>
+          <p>
+            <h4 id="p-profile-uni">
+              Universidad de Puerto Rico Bayamón
+            </h4>
+            <div class="department-label department-label-detail" id="department-detail">
+              <span class="department-label-form">
+                {{modal.profesor.department_name}}
+              </span>
+            </div>
+          </p>
+        </center>
+      </div>
     </div>
-    <button class="button button-full button-energized" ng-click="closeModal()">Done</button>
-  </ion-content>
-</div>
+  </div>
+
+  <center>
+    <div class="col professor-promedio">
+      <p class="professor-grade">
+        Promedio
+      <p/>
+        <p class="professor-percent">
+
+          <div  ng-class="{'gradeAlrg': modal.profesor.score <= 1 && modal.profesor.score >= .90, gradeBlrg: modal.profesor.score <= .899 && modal.profesor.score >= .80,  gradeClrg: modal.profesor.score >= .70  && modal.profesor.score <= .799, gradeDlrg: modal.profesor.score >= .60 && modal.profesor.score <= .699, gradeFlrg: modal.profesor.score <= .599 }"></div>
+          {{modal.profesor.score * 100 | number:2}}%
+        </p>
+        <div class="details">
+          <h2>Detalles</h2>
+          <!--<div class="professor-details">
+              <span class="ion-ios-chatbubble"></span>
+              <span class="count">
+                11 Comentarios
+              </span>
+          </div>
+          <div class="professor-details">
+              <span class="ion-android-checkbox-outline"></span>
+              <span class="count">{{modal.profesor.total_rates}} Evaluaciones</span>
+          </div>
+
+        -->
+
+        <table id="table-detail">
+          <tr>
+            <td>
+              <p>Responsabilidad</p>
+              <div class="grade{{modal.profesor.responsability}}lrg"> 
+              </div></td>
+              <td>
+                <p>Personalidad</p>
+                <div class="grade{{modal.profesor.personality}}lrg professor-details"></td>
+                </tr>
+                <tr>
+                  <td>
+                    <p>Dificultad</p>
+                    <div ng-class="{gradeFlrg: modal.profesor.difficulty == 1, gradeDlrg: modal.profesor.difficulty == 2,gradeClrg: modal.profesor.difficulty == 3,gradeBlrg: modal.profesor.difficulty == 4,gradeAlrg: modal.profesor.difficulty == 5,}" class="professor-details">
+                    </div>
+                  </td>
+                    <td>
+                      <p>Trabajo</p>
+                      <div ng-class="{gradeFlrg: modal.profesor.workload == 1, gradeDlrg: modal.profesor.workload == 2,gradeClrg: modal.profesor.workload == 3,gradeBlrg: modal.profesor.workload == 4,gradeAlrg: modal.profesor.workload == 5,}" class="professor-details">
+                      </div>
+                    </td>
+                    </tr>
+                  </table>
+                </div>
+              </div>
+              <h2>Commentarios</h2>
+              </center>
+              <div class="list list-comment" ng-repeat="comment in modal.profesor.user_comments.entries">
+            <a class="item" href="#">
+              <h2>
+                {{comment.name}}
+              </h2>
+              <p class="list-comment-body">
+                {{comment.body}}
+              </p>
+            </a>
+          </div>
+        </ion-content>
+      </div>
+
+            </div>
+
+          
