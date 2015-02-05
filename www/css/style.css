@@ -9,13 +9,22 @@ body{
 	background-color:#f8f8f8; 
 	border-color:#e7e7e7;
 	border-bottom: 1px solid rgba(0,0,0,0.1);
+	padding-top: 0px;
+}
+
+#header-container
+{
+	margin:0 auto;
 }
 
 #text-logo
 {
-	font-size: 1.4em;
+	font-size: 1.8em;
 	float:left;
+	color:black;
 	padding:0;
+	padding-top: 15px;
+	padding-left:10px;
 }
 
 
@@ -28,6 +37,13 @@ body{
 #header-image
 {
 	float:left;
+}
+
+#header-logo
+{
+	margin-top:0;
+	width: 150px;
+	height:35px;
 }
 
 #search
@@ -91,10 +107,17 @@ border-bottom: 1px solid #134C75;
 	margin-top:15px;
 }
 
+
 #loading-container img{
 	display:block;
 	margin: 0 auto;
 	margin-top: 10%;
+
+}
+
+#prof-container
+{
+	margin-top: 20px;
 }
 
 
@@ -149,7 +172,7 @@ border-bottom: 1px solid #134C75;
 	font-size: 1.6em;
 }
 
-.professor-promedip{
+.professor-promedio{
 	padding-bottom:0;
 }
 

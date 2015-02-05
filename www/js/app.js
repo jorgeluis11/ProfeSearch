@@ -22,7 +22,7 @@
   var app = angular.module("profesors",[])
 
   app.controller("profesorsCtrl", ["$http",'$scope','$ionicModal' ,function($http, $scope, $ionicModal){
-          $scope.loading = false;
+    $scope.loading = false;
 
     $scope.profesors = [];
     $scope.createProf = false;
@@ -36,15 +36,20 @@
         .success(function(data){
           $scope.profesors = (data);
           $scope.loading = false;
+          $scope.createProf = false;
           if(data.count === 0)
             $scope.createProf = true;
         }).error(function()
         {
           $scope.loading = false;
+          $scope.createProf = false;
+
         });
       else
+      {
         $scope.loading = false;
-      
+        $scope.createProf = false;
+      }
     };
 
    
@@ -61,6 +66,7 @@
     .success(function(data){
       $scope.modal.profesor = data;
       $scope.modal.loading = false;
+      $scope.createProf = false;
     })
     $scope.modal.show()
     }) 
@@ -71,16 +77,5 @@
     $scope.modal.hide();
     $scope.modal.remove();
   };
-
-  $http.get("https://notaso.com/api/search/",{
-                   params: {"q":"Huerta","format":"json"}})
-        .success(function(data){
-          $scope.profesors = (data);
-          $scope.loading = false;
-        }).error(function()
-        {
-          $scope.loading = false;
-        });
-
   }]);
 })();
