@@ -63,6 +63,7 @@
 
   $scope.closeModal = function() {
     $scope.modal.hide();
+    console.log($scope.modal);
   };
 
   $scope.$on('$destroy', function() {
