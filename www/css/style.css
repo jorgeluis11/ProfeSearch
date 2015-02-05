@@ -134,7 +134,7 @@ border-bottom: 1px solid #134C75;
 
 #title-modal h4
 {
-	color:white;
+	color: rgba(255,255,255,0.9);
 }
 
 .modal-size
@@ -215,9 +215,22 @@ border-bottom: 1px solid #134C75;
 #footer-custom{
 	background-color:#f8f8f8; 
 	border-color:#e7e7e7;
-	border-top: 1px solid rgba(0,0,0,0.1);
+	border-top: 1px solid rgba(0,0,0,0.1) !important;
 }
 
 .list-comment:active{
-background-color:none !important;
-};
+	background-color:none !important;
+}
+
+#modal-no-comments
+{
+	border-top:1px solid rgba(0,0,0,0.1);
+	padding-top: 10px;
+	margin-bottom: 0px !important;
+
+}
+
+#modal-no-comments-title
+{
+	margin-top: 0px !important;
+}

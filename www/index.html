@@ -26,7 +26,7 @@
   <body ng-app="starter">
     <ion-pane>
       <ion-header-bar class="bar bar-stable" id="header-custom">
-        <a id="header-container" href="https://notaso.com/">
+        <a id="header-container" onclick="window.open('https://notaso.com/', '_system', 'location=yes');">
           <center>
         <div> 
             <div  class="col col-50" id="header-image">
@@ -54,20 +54,18 @@
 
         <!--data-tap-disabled="true"-->
         <div id="loading-container" ng-show="loading">
-            <img src="./img/loading.gif">
+            <img src="img/loading.gif">
         </div>
 
         <div id="prof-container" ng-show="createProf">
             <center>
               <h3>
               El profesor que ha buscado no se encuentra.
-              Puede crearlo en
+              Puedes crearlo en
               <br>
-              <h2>
-              <a href="https://notaso.com/professors/create/">
-               
-                 Notaso.com
-                
+              <h2 class="modal-no-comments-title">
+              <a href="#" onclick="window.open('https://notaso.com/professors/create/', '_system', 'location=yes')">
+                 Notaso
               </a>
               </h2>
             </h3>
@@ -75,7 +73,7 @@
         </div>
 
         <div class="list" ng-repeat="profesor in profesors.results" id="profesor-list" ng-click="openModal(profesor.id)" ng-hide="loading">
-          <a class="item item-thumbnail-right" href="#">
+          <a class="item item-thumbnail-right">
             <div style="float:right;"  class="grade" ng-class="{'gradeAlrg': profesor.score <= 1 && profesor.score >= .90, gradeBlrg: profesor.score <= .899 && profesor.score >= .80,  gradeClrg: profesor.score >= .70  && profesor.score <= .799, gradeDlrg: profesor.score >= .60 && profesor.score <= .699, gradeFlrg: profesor.score <= .599 }">
             </div>
             <h2>

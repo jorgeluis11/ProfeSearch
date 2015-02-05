@@ -43,7 +43,6 @@
         {
           $scope.loading = false;
           $scope.createProf = false;
-
         });
       else
       {
@@ -55,7 +54,7 @@
    
 
   $scope.openModal = function(id) {
-    $ionicModal.fromTemplateUrl('../templates/profesor-modal.html', {
+    $ionicModal.fromTemplateUrl('templates/profesor-modal.html', {
     scope: $scope,
     animation: 'slide-in-up'
     }).then(function(modal) {

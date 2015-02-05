@@ -1,3 +1,4 @@
+  <ion-modal-view>
 <div class="modal modal-size">
   <ion-content id="modal-content">
   <div ng-click="closeModal()">
@@ -8,8 +9,10 @@
           <h1>  {{modal.profesor.first_name}} {{modal.profesor.  last_name}}
           </h1>
           <p>
-            <h4 id="p-profile-uni">
-              Universidad de Puerto Rico Bayamón
+            <h4>
+              <span class="professor-uni">
+                {{modal.profesor.university_name}}
+              </span>
             </h4>
             <div class="department-label department-label-detail" id="department-detail">
               <span class="department-label-form">
@@ -48,7 +51,13 @@
         -->
 
         <table id="table-detail">
-          <tr>
+          <!--<tr> <tr>
+            <td colspan="2">
+              <span class="ion-android-checkbox-outline"></span>
+              <p>{{modal.profesor.total_rates}} Evaluaciones</p>
+            </td>
+          </tr>
+          -->
             <td>
               <p>Responsabilidad</p>
               <div class="grade{{modal.profesor.responsability}}lrg"> 
@@ -57,6 +66,7 @@
                 <p>Personalidad</p>
                 <div class="grade{{modal.profesor.personality}}lrg professor-details"></td>
                 </tr>
+
                 <tr>
                   <td>
                     <p>Dificultad</p>
@@ -72,11 +82,11 @@
                   </table>
                 </div>
               </div>
-              <h2 ng-show="modal.profesor.user_comments.entries">   Commentarios
+              <h2 ng-show="modal.profesor.user_comments.entries">   {{modal.profesor.user_comments.total_comments}} Commentario<span ng-show="modal.profesor.user_comments.total_comments > 1">s</span>
               </h2>
               </center>
               <div class="list list-comment" ng-repeat="comment in modal.profesor.user_comments.entries">
-            <a class="item" href="#">
+            <a class="item">
               <h2>
                 {{comment.name}}
               </h2>
@@ -85,10 +95,20 @@
               </p>
             </a>
           </div>
+          <div id="modal-empty-comment" ng-hide="modal.profesor.user_comments.entries">
+            <center>
+            <h4 id="modal-no-comments">No hay commentarios, agrega uno en</h4>
+             <h2 id="modal-no-comments-title">
+              <a  href="#" onclick="window.open('https:/notaso.com/', '_system', 'location=yes')">
+                 Notaso
+              </a>
+              </h2>
+              </center>
+          </div>
           </div>
         </ion-content>
-        <ion-footer-bar align-title="left" class="bar-assertive" id="footer-custom">
-        <a href="https://notaso.com/professors/{{modal.profesor.slug}}/">
+        <ion-footer-bar align-title="left" id="footer-custom">
+        <a onclick="window.open('https:/notaso.com', '_system', 'location=yes')">
         <div class="title"> 
           <center>
             <div id="footer-text-size">
@@ -102,5 +122,6 @@
         </div>
         </a>
       </ion-footer-bar>
+        </ion-modal-view>
       </div>
 
