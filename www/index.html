@@ -24,15 +24,21 @@
     <script src="js/app.js"></script>
   </head>
   <body ng-app="starter">
-
     <ion-pane>
       <ion-header-bar class="bar bar-stable" id="header-custom">
-        <h1 class="title"> 
-              <center>
-                <img id="logo" src="./img/notaso-logo.png">
-                </img>
-              </center>
-        </h1>
+        <a href="https://notaso.com/">
+        <div class="title"> 
+          <center>
+            <div  class="col col-50" id="header-image">
+              <img id="footer-logo" src="./img/notaso-logo.png">
+            </img>
+            </div> 
+            <div class="col col-50" id="text-logo">
+              ProfeSearch
+            </div>       
+          </center>
+        </div>
+        </a>
       </ion-header-bar>
 
       <ion-content  ng-controller="profesorsCtrl" >
@@ -48,6 +54,17 @@
         <!--data-tap-disabled="true"-->
         <div id="loading-container" ng-show="loading">
             <img src="./img/loading.gif">
+        </div>
+
+        <div id="loading-container" ng-show="createProf">
+            <h3>
+              El profesor que ha buscado no se encuentra.
+              Agreguelo agregue el profesor aqui.
+              <a href="/notaso.com">
+               Notaso 
+              </a>
+            </h3>
+            
         </div>
 
         <div class="list " ng-repeat="profesor in profesors.results" id="profesor-list" ng-click="openModal(profesor.id)" ng-hide="loading">

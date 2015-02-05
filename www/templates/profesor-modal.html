@@ -1,5 +1,6 @@
-<div class="modal modal-size" ng-click="closeModal()">
-  <ion-content>
+<div class="modal modal-size">
+  <ion-content id="modal-content">
+  <div ng-click="closeModal()">
   <div id="title-modal">
     <div class="row">
       <div class="col">
@@ -71,7 +72,8 @@
                   </table>
                 </div>
               </div>
-              <h2>Commentarios</h2>
+              <h2 ng-show="modal.profesor.user_comments.entries">   Commentarios
+              </h2>
               </center>
               <div class="list list-comment" ng-repeat="comment in modal.profesor.user_comments.entries">
             <a class="item" href="#">
@@ -83,8 +85,10 @@
               </p>
             </a>
           </div>
+          </div>
         </ion-content>
         <ion-footer-bar align-title="left" class="bar-assertive" id="footer-custom">
+        <a href="https://notaso.com/professors/{{modal.profesor.slug}}/">
         <div class="title"> 
           <center>
             <div id="footer-text-size">
@@ -94,9 +98,9 @@
               <img id="footer-logo" src="./img/notaso-logo.png">
             </img>
             </div>          
-            
           </center>
         </div>
+        </a>
       </ion-footer-bar>
       </div>
 

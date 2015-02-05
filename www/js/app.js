@@ -25,50 +25,52 @@
           $scope.loading = false;
 
     $scope.profesors = [];
+    $scope.createProf = false;
 
     $scope.jsonProf = function(query){
+      $scope.createProf = false;
       $scope.loading = true;
-
       if(query !== "")
          $http.get("https://notaso.com/api/search/",{
                    params: {"q":query,"format":"json"}})
         .success(function(data){
           $scope.profesors = (data);
           $scope.loading = false;
+          if(data.count === 0)
+            $scope.createProf = true;
         }).error(function()
         {
           $scope.loading = false;
         });
+      else
+        $scope.loading = false;
+      
     };
 
-  $ionicModal.fromTemplateUrl('../templates/profesor-modal.html', {
-    scope: $scope,
-    animation: 'slide-in-up'
-  }).then(function(modal) {
-    modal.id = 'profesor-modal';
-    $scope.modal = modal
-  })  
+   
 
   $scope.openModal = function(id) {
-    $scope.modal.loading = true;
-    $http.get("https://notaso.com/api/professors/"+id,{
+    $ionicModal.fromTemplateUrl('../templates/profesor-modal.html', {
+    scope: $scope,
+    animation: 'slide-in-up'
+    }).then(function(modal) {
+      modal.id = 'profesor-modal';
+      $scope.modal = modal
+      $http.get("https://notaso.com/api/professors/"+id,{
               params: {"format":"json","comments":"true"}})
     .success(function(data){
       $scope.modal.profesor = data;
       $scope.modal.loading = false;
-      console.log($scope.modal.loading)
     })
     $scope.modal.show()
+    }) 
+    
   }
 
   $scope.closeModal = function() {
     $scope.modal.hide();
-    console.log($scope.modal);
-  };
-
-  $scope.$on('$destroy', function() {
     $scope.modal.remove();
-  });
+  };
 
   $http.get("https://notaso.com/api/search/",{
                    params: {"q":"Huerta","format":"json"}})

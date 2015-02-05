@@ -11,6 +11,25 @@ body{
 	border-bottom: 1px solid rgba(0,0,0,0.1);
 }
 
+#text-logo
+{
+	font-size: 1.4em;
+	float:left;
+	padding:0;
+}
+
+
+#header-text-size
+{
+	font-size:.8em;
+	float:left;
+}
+
+#header-image
+{
+	float:left;
+}
+
 #search
 {
 	-webkit-border-radius: 6px;
@@ -175,3 +194,7 @@ border-bottom: 1px solid #134C75;
 	border-color:#e7e7e7;
 	border-top: 1px solid rgba(0,0,0,0.1);
 }
+
+.list-comment:active{
+background-color:none !important;
+};
