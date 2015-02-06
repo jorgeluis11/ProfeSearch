@@ -42,12 +42,15 @@
         </a>
       </ion-header-bar>
 
-      <ion-content  ng-controller="profesorsCtrl" >
+      <ion-content  overflow-scroll="true" ng-controller="profesorsCtrl" >
         <div id="search-row" class="row">
           <div class="col" >
+            <form ng-submit="jsonProf(query)">
             <label class="item item-input">
-              <i class="icon ion-search placeholder-icon"></i>
-              <input id="search" type="search" placeholder="Busca un Profesor" ng-model="query" ng-change="jsonProf(query)" >
+                <i class="icon ion-search placeholder-icon"></i>
+                <input id="search" type="search" placeholder="Busca un Profesor" ng-model="query" >
+                <input type="submit" style="position: absolute; left: -9999px; width: 1px; height: 1px;"/>
+              </form>
             </label>
           </div> 
         </div>
