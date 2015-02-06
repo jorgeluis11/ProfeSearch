@@ -109,9 +109,9 @@ border-bottom: 1px solid #134C75;
 
 
 #loading-container img{
-	display:block;
-	margin: 0 auto;
-	margin-top: 10%;
+	position:relative;
+	top:30%;
+	margin-top:10%;
 
 }
 
@@ -233,4 +233,35 @@ border-bottom: 1px solid #134C75;
 #modal-no-comments-title
 {
 	margin-top: 0px !important;
+}
+.view-slide-in.ng-enter {
+  transition: all 1s ease;
+  -webkit-transition:all 1s ease;
+  -moz-transition: all 1s ease;
+  -o-transition: all 1s ease;
+   
+  opacity:0.5;
+  position:relative;
+  opacity:0;
+  top:10px;
+  left:20px;
+}
+
+.view-slide-in.ng-enter {
+  opacity: 0;
+}
+.view-slide-in.ng-enter.ng-enter-active {
+  top:0;
+  left:0;
+  opacity: 1;
+}
+.view-slide-in.ng-leave.ng-leave-active{
+  top:5px;
+  left:5px;
+  opacity:1;
+}
+.view-slide-in.ng-leave{
+  top:0;
+  left:0;
+  opacity:0;
 }

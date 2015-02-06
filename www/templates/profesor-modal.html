@@ -32,7 +32,7 @@
       <p/>
         <p class="professor-percent">
 
-          <div  ng-class="{'gradeAlrg': modal.profesor.score <= 1 && modal.profesor.score >= .90, gradeBlrg: modal.profesor.score <= .899 && modal.profesor.score >= .80,  gradeClrg: modal.profesor.score >= .70  && modal.profesor.score <= .799, gradeDlrg: modal.profesor.score >= .60 && modal.profesor.score <= .699, gradeFlrg: modal.profesor.score <= .599 }"></div>
+          <div  ng-view class="view-slide-in" ng-class="{'gradeAlrg': modal.profesor.score <= 1 && modal.profesor.score >= .90, gradeBlrg: modal.profesor.score <= .899 && modal.profesor.score >= .80,  gradeClrg: modal.profesor.score >= .70  && modal.profesor.score <= .799, gradeDlrg: modal.profesor.score >= .60 && modal.profesor.score <= .699, gradeFlrg: modal.profesor.score <= .599 }"></div>
           {{modal.profesor.score * 100 | number:2}}%
         </p>
         <div class="details">
@@ -70,12 +70,12 @@
                 <tr>
                   <td>
                     <p>Dificultad</p>
-                    <div ng-class="{gradeFlrg: modal.profesor.difficulty == 1, gradeDlrg: modal.profesor.difficulty == 2,gradeClrg: modal.profesor.difficulty == 3,gradeBlrg: modal.profesor.difficulty == 4,gradeAlrg: modal.profesor.difficulty == 5,}" class="professor-details">
+                    <div ng-class="{gradeAlrg: modal.profesor.difficulty == 1, gradeBlrg: modal.profesor.difficulty == 2,gradeClrg: modal.profesor.difficulty == 3,gradeDlrg: modal.profesor.difficulty == 4,gradeFlrg: modal.profesor.difficulty == 5,}" class="professor-details">
                     </div>
                   </td>
                     <td>
                       <p>Trabajo</p>
-                      <div ng-class="{gradeFlrg: modal.profesor.workload == 1, gradeDlrg: modal.profesor.workload == 2,gradeClrg: modal.profesor.workload == 3,gradeBlrg: modal.profesor.workload == 4,gradeAlrg: modal.profesor.workload == 5,}" class="professor-details">
+                      <div ng-class="{gradeAlrg: modal.profesor.workload == 1, gradeBlrg: modal.profesor.workload == 2,gradeClrg: modal.profesor.workload == 3,gradeDlrg: modal.profesor.workload == 4,gradeFlrg: modal.profesor.workload == 5,}" class="professor-details">
                       </div>
                     </td>
                     </tr>

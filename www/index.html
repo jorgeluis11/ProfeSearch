@@ -57,7 +57,9 @@
 
         <!--data-tap-disabled="true"-->
         <div id="loading-container" ng-show="loading">
+          <center>
             <img src="img/loading.gif">
+            </center>
         </div>
 
         <div id="prof-container" ng-show="createProf">
@@ -74,8 +76,8 @@
             </h3>
             </center>
         </div>
-
-        <div class="list" ng-repeat="profesor in profesors.results" id="profesor-list" ng-click="openModal(profesor.id)" ng-hide="loading">
+        <ion-list animation="my-animate">
+        <div class="list" ng-repeat="profesor in profesors.results" id="profesor-list" ng-click="openModal(profesor.id)" ng-hide="loading" >
           <a class="item item-thumbnail-right">
             <div style="float:right;"  class="grade" ng-class="{'gradeAlrg': profesor.score <= 1 && profesor.score >= .90, gradeBlrg: profesor.score <= .899 && profesor.score >= .80,  gradeClrg: profesor.score >= .70  && profesor.score <= .799, gradeDlrg: profesor.score >= .60 && profesor.score <= .699, gradeFlrg: profesor.score <= .599 }">
             </div>
@@ -90,12 +92,11 @@
                 <span class="department-label-form">
                 {{profesor.department_name}}
                 </span>
-
               </div>
             </p>
           </a>
         </div>
-
+      </ion-list>
       </ion-content>
     </ion-pane>
   </body>

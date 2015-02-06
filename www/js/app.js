@@ -10,6 +10,7 @@
     $ionicPlatform.ready(function() {
       // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
       // for form inputs)
+    console.log(window.cordova)
       if(window.cordova && window.cordova.plugins.Keyboard) {
         cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
       }
@@ -28,6 +29,8 @@
     $scope.createProf = false;
 
     $scope.jsonProf = function(query){
+      if(window.cordova && window.cordova.plugins.Keyboard)
+        window.cordova.plugins.Keyboard.close();
       $scope.createProf = false;
       $scope.loading = true;
       if(query !== "")
@@ -50,8 +53,6 @@
         $scope.createProf = false;
       }
     };
-
-   
 
   $scope.openModal = function(id) {
     $ionicModal.fromTemplateUrl('templates/profesor-modal.html', {
