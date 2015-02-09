@@ -4,6 +4,63 @@ body{
 	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif
 }
 
+#intro
+{
+	position: absolute;
+	top: 0;
+	left: 0;
+	background: #0B4F84;
+	z-index: 999;
+	width: 100%;
+	height: 100%;
+}
+
+#intro-logo
+{
+	position: relative;
+	top: 10%;
+	color:white;
+	font-size: 2.5em;
+	width: 100%;
+	text-align: center;
+    background-color: inherit;
+
+}
+
+#intro-logo-label
+{
+	padding-left: 6px;
+	font-size: 10px;
+}
+#intro-logo-text{
+	margin-top: 5px;
+}
+
+#intro-logo-img
+{
+	width: 50%;
+	max-width: 360px;
+}
+
+#intro-logo-search
+{
+	margin: 0 auto; 
+	width: 54%;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+}
+
+#intro-logo-search-icon{
+	margin-left: 0;
+}
+#intro-logo-search-textfield
+{
+	margin-left: 5px;
+	float:right;
+}
+
+
 #header-custom
 {
 	background-color:#f8f8f8; 
@@ -62,17 +119,17 @@ body{
 #search-row
 {
 	color: #fff;
-text-align: center;
-background-color: #0B4F84;
-border-top: 1px solid #134C75;
-border-bottom: 1px solid #134C75;
+	text-align: center;
+	background-color: #0B4F84;
+	border-top: 1px solid #134C75;
+	border-bottom: 1px solid #134C75;
 }
 
-#profesor-list{
+.profesor-list{
 	height: 60px;
 }
 
-#profesor-list>a
+.profesor-list>a
 {
 	padding-top: 8px; 
 	padding-bottom: 8px; 
@@ -264,4 +321,79 @@ border-bottom: 1px solid #134C75;
   top:0;
   left:0;
   opacity:0;
+}
+
+.animate-repeat {
+    -webkit-transition: 1s linear all;
+    transition: 1s linear all;
+}
+
+.animate-repeat.ng-move,
+.animate-repeat.ng-enter,
+.animate-repeat.ng-leave
+ {
+    -webkit-transition:all linear 0.5s;
+    transition:all linear 0.5s;
+}
+
+
+
+.animate-repeat.ng-move,
+.animate-repeat.ng-enter {
+	margin-right: 300px;
+    opacity:0;
+}
+
+
+.animate-repeat.ng-move.ng-move-active,
+.animate-repeat.ng-enter.ng-enter-active {
+	margin-right: 0;
+    opacity:1;
+
+}
+
+.animate-repeat.ng-leave.ng-leave-active,
+.animate-repeat.ng-move.ng-move-active{
+    opacity:0;
+}
+
+.animate-repeat.ng-leave,
+.animate-repeat.ng-move.ng-move-active{
+    opacity:1;
+}
+
+
+.animate-repeat.ng-leave-stagger {
+    -webkit-transition-delay: 0s;
+    transition-delay: 0s;
+}
+
+.animate-repeat.ng-enter-stagger {
+    -webkit-transition-delay: 0.2s;
+    transition-delay: 0.2s;
+
+    -webkit-transition-duration: 0s;
+    transition-duration: 0s;
+}
+
+
+.animate-show {
+  opacity: 1;
+  height: inherit;
+  background: white;
+}
+
+.animate-show.ng-hide-remove.ng-hide-remove-active {
+  -webkit-transition: all linear 0.5s;
+  transition: all linear 0.5s;
+}
+.animate-show.ng-hide-add.ng-hide-add-active{
+	-webkit-transition: all linear 0.1s;
+  transition: all linear 0.1s;
+}
+
+.animate-show.ng-hide {
+  line-height: 0;
+  opacity: 0;
+  height: 0;
 }
