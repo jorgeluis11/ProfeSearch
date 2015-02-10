@@ -29,13 +29,11 @@
     $scope.jsonProf = function(query){
       if(window.cordova && window.cordova.plugins.Keyboard)
         window.cordova.plugins.Keyboard.close();
-      console.log( query  !== undefined)
       if( query !== undefined && query !== "")
          $http.get("https://notaso.com/api/search/",{
                    params: {"q":query,"format":"json"}})
         .success(function(data){
           $scope.profesors = (data);
-          console.log(data)
           if(data.count === 0)
           {
             $scope.profesors = [];
