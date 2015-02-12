@@ -89,7 +89,7 @@ app.directive('fade', function() {
             // See how the directive alone controls the events, not the scope
             element.on(onEvent, function() {
                 var targetElement = $('#' + attrs.fadeTarget);
-                targetElement.fadeOut(fadeDuration);             
+                targetElement.fadeOut(700);             
             });
         }
     };

@@ -4,6 +4,8 @@ body{
 	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif
 }
 
+
+
 #intro
 {
 	position: absolute;
@@ -13,6 +15,31 @@ body{
 	z-index: 999;
 	width: 100%;
 	height: 100%;
+	transform: translate3d(0,0,0);
+}
+
+#made-with-love
+{
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	margin: 0 auto;
+	color:white;
+	text-align: center;
+
+}
+
+
+#made-with-love>h4
+{
+	color:white;
+	display: inline;
+	margin: auto 0;
+}
+
+#hearth
+{
+	color: red;
 }
 
 #intro-logo
@@ -324,30 +351,33 @@ body{
 }
 
 .animate-repeat {
-    -webkit-transition: 1s linear all;
-    transition: 1s linear all;
+    -webkit-transition: 1s ease-out all;
+    transition: 1s ease-out all;
+
 }
 
 .animate-repeat.ng-move,
 .animate-repeat.ng-enter,
-.animate-repeat.ng-leave
- {
-    -webkit-transition:all linear 0.5s;
-    transition:all linear 0.5s;
-}
 
+ {
+    -webkit-transition:all ease-out 0.5s;
+    transition:all ease-out 0.5s;
+}
+.animate-repeat.ng-leave
+{
+	-webkit-transition:all ease-out 0.1s;
+    transition:all ease-out 0.1s;
+}
 
 
 .animate-repeat.ng-move,
 .animate-repeat.ng-enter {
-	margin-right: 300px;
     opacity:0;
 }
 
 
 .animate-repeat.ng-move.ng-move-active,
 .animate-repeat.ng-enter.ng-enter-active {
-	margin-right: 0;
     opacity:1;
 
 }
@@ -379,21 +409,17 @@ body{
 
 .animate-show {
   opacity: 1;
-  height: inherit;
-  background: white;
 }
 
 .animate-show.ng-hide-remove.ng-hide-remove-active {
-  -webkit-transition: all linear 0.5s;
-  transition: all linear 0.5s;
+  -webkit-transition: opacity linear 0.5s;
+  transition: opacity linear 0.5s;
 }
 .animate-show.ng-hide-add.ng-hide-add-active{
-	-webkit-transition: all linear 0.1s;
-  transition: all linear 0.1s;
+	-webkit-transition: opacity linear 0.1s;
+  transition: opacity linear 0.1s;
 }
 
 .animate-show.ng-hide {
-  line-height: 0;
   opacity: 0;
-  height: 0;
 }
