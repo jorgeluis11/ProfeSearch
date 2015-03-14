@@ -1,4 +1,11 @@
 {
   "name": "notaso",
-  "app_id": ""
+  "app_id": "",
+  "browsers": [
+    {
+      "platform": "android",
+      "browser": "crosswalk",
+      "version": "8.37.189.14"
+    }
+  ]
 }

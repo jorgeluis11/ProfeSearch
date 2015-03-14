@@ -20,34 +20,17 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <!-- your app's js -->
     <script src="js/app.js"></script>
+    
+    <!-- Directives -->
+    <script src="js/directives/splash.js"></script>
+
   </head>
-  <body ng-app="starter" ng-controller="profesorsCtrl">
-     <div id="intro">
-        <div id="intro-logo">
-          <img id="intro-logo-img" src="img/ProfeSearchLogo.png" >
-          <p id="intro-logo-text"> 
-            ProfeSearch
-          </p>
-          <i id="intr-logo-text-arrow" class="ion-chevron-down"></i>
-            <div class="row">
-              <div id="intro-logo-search">
-                <form ng-submit="jsonProf(query)" fade="submit" fade-duration="1" fade-target="intro">
-                <label id="intro-logo-label" class="item item-input">
-                    <i id="intro-logo-search-icon" class="icon ion-search placeholder-icon"></i>
-                    <input id="intro-logo-search-textfield" type="search" placeholder="Buscar un Profesor" value="" ng-model="query">
-                    <input type="submit" style="position: absolute; left: -9999px; width: 1px; height: 1px;"/>
-                  </form>
-                </label>
-              </div> 
-            </div>
-        </div>
-        <div id="made-with-love">
-          <h4>Made with 
-            <i id="hearth" class="ion-heart"></i> in P.R.
-          </h4>
-        </div>
-      </div>
-      
+  <body ng-app="starter">
+    <!-- Splash Directive -->
+    <splash-screen></splash-screen>
+    <!-- End Splash Screen -->
+
+    
     <ion-pane>
       <ion-header-bar class="bar bar-stable" id="header-custom">
         <a id="header-container" onclick="window.open('https://notaso.com/', '_system', 'location=yes');">
@@ -71,7 +54,7 @@
             <form ng-submit="jsonProf(query)" >
             <label class="item item-input">
                 <i class="icon ion-search placeholder-icon"></i>
-                <input id="search" type="search" placeholder="Busca un Profesor" ng-model="query">
+                <input id="search" type="search" placeholder="Busca un professor" ng-model="query">
 
                 <input type="submit" style="position: absolute; left: -9999px; width: 1px; height: 1px;"/>
               </form>
@@ -89,7 +72,7 @@
         <div id="prof-container" ng-show="createProf" class="animate-show">
             <center>
               <h3>
-              El profesor que ha buscado no se encuentra.
+              El professor que ha buscado no se encuentra.
               <br>Puede crearlo en
               <br>
               <h2 class="modal-no-comments-title">
@@ -100,29 +83,8 @@
             </h3>
             </center>
         </div>
-        <ion-list>
-        <div id="professor-container-list">
-          <div class="list profesor-list animate-repeat" ng-repeat="profesor in profesors.results" ng-click="openModal(profesor.id)" ng-hide="loading" >
-            <a class="item item-thumbnail-right">
-              <div style="float:right;"  class="grade" ng-class="{'gradeAlrg': profesor.score <= 1 && profesor.score >= .90, gradeBlrg: profesor.score <= .899 && profesor.score >= .80,  gradeClrg: profesor.score >= .70  && profesor.score <= .799, gradeDlrg: profesor.score >= .60 && profesor.score <= .699, gradeFlrg: profesor.score <= .599 }">
-              </div>
-              <h2>
-                {{profesor.first_name}} {{profesor.last_name}}
-              </h2>
-              <p>
-                {{profesor.university_name}}
-              </p>
-              <p >
-                <div class="department-label">
-                  <span class="department-label-form">
-                  {{profesor.department_name}}
-                  </span>
-                </div>
-              </p>
-            </a>
-          </div>
-        </div>
-      </ion-list>
+        
+        <!-- <professors> </professors> -->
       </ion-content>
     </ion-pane>
   </body>

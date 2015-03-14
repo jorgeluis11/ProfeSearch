@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<widget id="com.ionicframework.notaso683473" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-  <name>Notaso</name>
+<widget id="com.ionicframework.notaso683473" version="0.0.5" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+  <name>ProfeSearch</name>
   <description>
-       Conoce a tus profesores antes de llegar al salón.
-       Notaso te ayuda a decidir que clase tomar y que profesor es mejor.
+       Profesor Search powered by Notaso api.  It help's you find the best or the worst professor.  ProfeSearch is not affiliated with Notaso in anyway.
     </description>
   <author email="perez.jorge718@gmail.com" href="www.perezjl.com">
-      Ionic Framework Team
+      Jorge Perez
     </author>
   <content src="index.html"/>
   <access origin="*"/>
@@ -17,4 +16,11 @@
   <feature name="StatusBar">
     <param name="ios-package" value="CDVStatusBar" onload="true"/>
   </feature>
+  <feature name="Keyboard">
+    <param name="ios-package" value="IonicKeyboard" onload="true" />
+    <param name="android-package" value="com.ionic.keyboard.IonicKeyboard" />
+  </feature>
+  <platform name="android">
+  </platform>
+
 </widget>
