@@ -4,7 +4,7 @@
   // angular.module is a global place for creating, registering and retrieving Angular modules
   // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
   // the 2nd parameter is an array of 'requires'
-  angular.module('starter', ['ionic'])
+  angular.module('profeSearchStarter', ['ionic'])
   .run(function($ionicPlatform) {
     $ionicPlatform.ready(function() {
       // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
@@ -17,11 +17,29 @@
       }
     });
   })
+  .config(function($stateProvider, $urlRouterProvider){
 
+    //$stateProvider.state('splash', {
+        // url: '/',
+        // views: {
+        // splash: {
+        //   templateUrl: '../templates/base/splash.html'
+        //   }
+        // }
+      // });
+    $stateProvider.state('home', {
+        url: '/search',
+        
+        templateUrl: '../templates/base/content.html'
+        
+      });
+    
+    $urlRouterProvider.otherwise('/search');
+  
+  })
   // var app = angular.module("profesors",[])
-
-  .controller("profesorsCtrl", ["$http",'$scope','$ionicModal' ,function($http, $scope, $ionicModal){
-    $scope.loading = false;
+  .controller("appController", ["$http",'$scope','$ionicModal' ,function($http, $scope, $ionicModal){
+    $scope.loading = true;
     $scope.profesors = [];
     $scope.createProf = false;
 
@@ -77,21 +95,5 @@
 .controller('itemsController', function($scope) {
     $scope.items = [{ name: 'Foo' }, { name: 'Bar'}, { name: 'Baz'}];    
 })
-
-.directive('fade', function() {
-    return {
-        restrict: 'A',
-        link: function(scope, element, attrs) {
-            var fadeDuration = attrs.fadeDuration || 1000;
-            var onEvent = attrs.fade || click;
-
-            // See how the directive alone controls the events, not the scope
-            element.on(onEvent, function() {
-                var targetElement = $('#' + attrs.fadeTarget);
-                targetElement.fadeOut(700);             
-            });
-        }
-    };
-});
 
 // })();

@@ -1,4 +1,4 @@
-angular.module("starter")
+angular.module("profeSearchStarter")
 .factory('Professor', ['$http', function ($http) {
 	return {
 		all:function(query){
