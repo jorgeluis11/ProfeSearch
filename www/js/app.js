@@ -1,14 +1,7 @@
 // (function(){
-  // Ionic Starter App
-
-  // angular.module is a global place for creating, registering and retrieving Angular modules
-  // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
-  // the 2nd parameter is an array of 'requires'
   angular.module('profeSearchStarter', ['ionic'])
   .run(function($ionicPlatform) {
     $ionicPlatform.ready(function() {
-      // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
-      // for form inputs)
       if(window.cordova && window.cordova.plugins.Keyboard) {
         cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
       }
@@ -29,71 +22,12 @@
       // });
     $stateProvider.state('home', {
         url: '/search',
-        
-        templateUrl: '../templates/base/content.html'
-        
+        templateUrl: '../templates/professors/index.html',
+        controller:"professorController"
       });
     
     $urlRouterProvider.otherwise('/search');
   
   })
   // var app = angular.module("profesors",[])
-  .controller("appController", ["$http",'$scope','$ionicModal' ,function($http, $scope, $ionicModal){
-    $scope.loading = true;
-    $scope.profesors = [];
-    $scope.createProf = false;
-
-    $scope.jsonProf = function(query){
-      if(window.cordova && window.cordova.plugins.Keyboard)
-        window.cordova.plugins.Keyboard.close();
-      if( query !== undefined && query !== "")
-         $http.get("https://notaso.com/api/search/",{
-                   params: {"q":query,"format":"json"}})
-        .success(function(data){
-          $scope.profesors = (data);
-          if(data.count === 0)
-          {
-            $scope.profesors = [];
-            $scope.createProf = true;
-          }
-          else
-            $scope.createProf = false;
-
-        })
-      else{
-        $scope.createProf = true;
-        $scope.profesors = [];
-      }
-    };
-
-  $scope.openModal = function(id) {
-    $ionicModal.fromTemplateUrl('templates/profesor-modal.html', {
-    scope: $scope,
-    animation: 'slide-in-up'
-    }).then(function(modal) {
-      modal.id = 'profesor-modal';
-      $scope.modal = modal
-      $http.get("https://notaso.com/api/professors/"+id,{
-              params: {"format":"json","comments":"true"}})
-    .success(function(data){
-      $scope.modal.profesor = data;
-      $scope.modal.loading = false;
-      $scope.createProf = false;
-    })
-    $scope.modal.show()
-    }) 
-    
-  }
-
-  $scope.closeModal = function() {
-    $scope.modal.hide();
-    $scope.modal.remove();
-  };
-  }])
-
-
-.controller('itemsController', function($scope) {
-    $scope.items = [{ name: 'Foo' }, { name: 'Bar'}, { name: 'Baz'}];    
-})
-
 // })();

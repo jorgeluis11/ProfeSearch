@@ -4,7 +4,7 @@ body{
 	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif
 }
 
-
+/*Splash CSS*/
 
 #intro
 {
@@ -17,31 +17,6 @@ body{
 	height: 100%;
 	transform: translate3d(0,0,0);
 }
-
-#made-with-love
-{
-	position: absolute;
-	bottom: 0;
-	width: 100%;
-	margin: 0 auto;
-	color:white;
-	text-align: center;
-
-}
-
-
-#made-with-love>h4
-{
-	color:white;
-	display: inline;
-	margin: auto 0;
-}
-
-#hearth
-{
-	color: red;
-}
-
 #intro-logo
 {
 	position: relative;
@@ -87,28 +62,83 @@ body{
 	float:right;
 }
 
+/*Made With Love in PR*/
 
-#header-custom
+#made-with-love
 {
-	background-color:#f8f8f8; 
-	border-color:#e7e7e7;
-	border-bottom: 1px solid rgba(0,0,0,0.1);
-	padding-top: 0px;
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	margin: 0 auto;
+	color:white;
+	text-align: center;
+
 }
+
+
+#made-with-love>h4
+{
+	color:white;
+	display: inline;
+	margin: auto 0;
+}
+
+#hearth
+{
+	color: red;
+}
+/*End Made With Love*/
+/*End Splash CSS*/
+
+/*Loading*/
+#loading
+{
+	position: absolute;
+	top: 0;
+	left: 0;
+	background-color: rgba(0,0,0,0.6);
+	z-index: 99999;
+	width: 100%;
+	height: 100%;
+	transform: translate3d(0,0,0);
+}
+
+#loading-icon
+{
+	position: relative;
+	top: 45%;
+	color:white;
+	font-size: 2.5em;
+	width: 100%;
+	text-align: center;
+
+}
+#loading-icon-img
+{
+	width: 15%;
+	max-width: 360px;
+}
+/*End Loading*/
+
 
 #header-container
 {
 	margin:0 auto;
 }
 
+#header-custom
+{
+	background-color:#0B4F84; 
+	padding-top: 0px;
+}
+
 #text-logo
 {
-	font-size: 1.8em;
-	float:left;
-	color:black;
-	padding:0;
-	padding-top: 15px;
-	padding-left:10px;
+	display: block;
+	text-align: center;
+  	margin: 0 auto;
+  	color: white;
+  	padding: 0;
 }
 
 
@@ -130,6 +160,11 @@ body{
 	height:35px;
 }
 
+ion-content
+{
+	padding-top: 0 !important;
+}
+
 #search
 {
 	-webkit-border-radius: 6px;
@@ -143,6 +178,7 @@ body{
 	padding: 5px;
 }
 
+/*Search Row*/
 #search-row
 {
 	color: #fff;
@@ -152,8 +188,17 @@ body{
 	border-bottom: 1px solid #134C75;
 }
 
+/*.search-fixed{
+	background-color: black !important;
+	position: fixed;
+	bottom:0px;
+	z-index: 9999999;
+}*/
+
+/*End Search Row*/
+
 .professor-list{
-	height: 60px;
+	height: 65px;
 }
 
 .professor-list>a
@@ -165,7 +210,8 @@ body{
 }
 
 .department-label{
-	display: inline;
+	display: inline-block;
+	height: 23px;
 	background-color:#d9534f;
 }
 
@@ -191,9 +237,16 @@ body{
 	margin-top:15px;
 }
 
-
+#loading-container{
+	position:absolute;
+	width: 100%;
+	z-index: 1000000;
+	height: 100%;
+	top:0;
+	left:0;
+	background-color: rgba(0,0,0,2);
+}
 #loading-container img{
-	position:relative;
 	top:30%;
 	margin-top:10%;
 

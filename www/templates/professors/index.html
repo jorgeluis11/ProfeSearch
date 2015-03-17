@@ -1,29 +1,23 @@
-<ion-view title="Search">
-<ion-header-bar class="bar bar-stable" id="header-custom">
-        <a id="header-container" onclick="window.open('https://notaso.com/', '_system', 'location=yes');">
-          <center>
-        <div> 
-            <div  class="col col-50" id="header-image">
-              <img id="header-logo" src="./img/notaso-logo.png">
-            </img>
-            </div> 
-            <div class="col col-50" id="text-logo">
-              ProfeSearch
-            </div>  
-        </div>
-         </center>
-        </a>
-      </ion-header-bar>
-
+                
+    <!-- Splash Directive -->
+    <splash-screen fade="submit" fade-duration="1" fade-target="intro"></splash-screen>
+    <!-- End Splash Screen -->
+    <ion-view>
       <ion-content  overflow-scroll="true">
-
+      <ion-scroll delegate-handle="scroller" direction="y" on-scroll="gotScrolled()" style="width: inherit; height: inherit">
+      <div id="header-custom" class="row">
+        <h1 id="text-logo">
+           ProfeSearch
+        </h1>
+      </div>
+    </div>
+       
         <div id="search-row" class="row">
           <div class="col" >
             <form ng-submit="jsonProf(query)" >
             <label class="item item-input">
                 <i class="icon ion-search placeholder-icon"></i>
-                <input id="search" type="search" placeholder="Busca un professor" ng-model="query">
-
+                <input id="search" type="search" placeholder="Busca un professor" ng-model="query"/>
                 <input type="submit" style="position: absolute; left: -9999px; width: 1px; height: 1px;"/>
               </form>
             </label>
@@ -31,13 +25,9 @@
         </div>
 
         <!--data-tap-disabled="true"-->
-        <div id="loading-container" ng-show="loading">
-          <center>
-            <img src="img/loading.gif">
-            </center>
-        </div>
+        
 
-        <div id="prof-container" ng-show="createProf" class="animate-show">
+        <!-- <div id="prof-container" ng-show="createProf" class="animate-show">
             <center>
               <h3>
               El professor que ha buscado no se encuentra.
@@ -50,8 +40,17 @@
               </h2>
             </h3>
             </center>
-        </div>
+        </div> -->
         
-        <!-- <professors> </professors> -->
+        <!-- professorsList Directive -->
+        <professors-list></professors-list>
+        <!-- End professorsList -->
+        </ion-scroll>
       </ion-content>
 </ion-view>
+
+<div id="loading" ng-show="loading">
+        <div id="loading-icon">
+          <img id="loading-icon-img" src="img/loading.GIF" >
+        </div>
+    </div>  

@@ -1,4 +1,4 @@
-  <ion-modal-view>
+<ion-modal-view>
 <div class="modal modal-size">
   <ion-content id="modal-content" overflow-scroll="true">
   <div ng-click="closeModal()">
@@ -31,7 +31,6 @@
         Promedio
       <p/>
         <p class="professor-percent">
-
           <div  ng-view class="view-slide-in" ng-class="{'gradeAlrg': modal.profesor.score <= 1 && modal.profesor.score >= .90, gradeBlrg: modal.profesor.score <= .899 && modal.profesor.score >= .80,  gradeClrg: modal.profesor.score >= .70  && modal.profesor.score <= .799, gradeDlrg: modal.profesor.score >= .60 && modal.profesor.score <= .699, gradeFlrg: modal.profesor.score <= .599 }"></div>
           {{modal.profesor.score * 100 | number:2}}%
         </p>
@@ -124,4 +123,3 @@
       </ion-footer-bar>
         </ion-modal-view>
       </div>
-

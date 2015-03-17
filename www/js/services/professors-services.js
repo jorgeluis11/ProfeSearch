@@ -5,7 +5,7 @@ angular.module("profeSearchStarter")
 			return $http.get("https://notaso.com/api/search/",{
                    params: {"q":query,"format":"json"}})
 		},
-		one:function(id){
+		get:function(id){
 			return $http.get("https://notaso.com/api/professors/"+id,{
               params: {"format":"json","comments":"true"}})
 		}
