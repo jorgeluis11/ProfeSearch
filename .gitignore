@@ -8,3 +8,5 @@ hooks/
 
 platforms/
 plugins/
+*.DS_Store
+emulator.sh

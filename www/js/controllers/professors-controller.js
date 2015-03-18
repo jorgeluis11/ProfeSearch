@@ -9,7 +9,6 @@ angular.module('profeSearchStarter')
       if(window.cordova && window.cordova.plugins.Keyboard)
       {
         window.cordova.plugins.Keyboard.close();
-        $(window).scrollTop();
       }
       
       if( query !== undefined && query !== "")
@@ -36,34 +35,43 @@ angular.module('profeSearchStarter')
       $scope.loading = true;
       Professor.get(id)
       .success(function(data){
-      $ionicModal.fromTemplateUrl('templates/professor-modal.html', {
+      $ionicModal.fromTemplateUrl('templates/professors/modal.html', {
         scope: $scope,
         animation: 'slide-in-up'
         }).then(function(modal) {
           modal.id = 'profesor-modal';
-          $scope.modal = modal
-          $scope.modal.profesor = data;
-          $scope.loading = false;
-          $scope.createProf = false;
+          $scope.modal = modal;
           $scope.modal.show()
+          AdMob.showBanner(AdMob.AD_POSITION.BOTTOM_CENTER);
+          if(/(ipod|iphone|ipad)/i.test(navigator.userAgent)) { // for ios
+            $("#header-custom").css({"padding-top":"20px"});
+            $(".modal-size").css({"margin-top":"12px"});
+          }
+          $scope.loading = false;
+          $scope.modal.profesor = data;
         });
       });
   }
 
+  $scope.addComment = function(slug){
+    window.open('https://notaso.com/professors/'+slug+"/", '_system', 'location=yes')
+  }
+
   $scope.closeModal = function() {
+    AdMob.hideBanner();
     $scope.modal.hide();
     $scope.modal.remove();
   };
 
-  $scope.gotScrolled = function(){
-    var currentTop = $ionicScrollDelegate.$getByHandle('scroller').getScrollPosition().top;
-    var element = $("#search-row");
-    if(currentTop > 40);
-      if(!element.hasClass("search-fixed"))
-      {
-        element.addClass('search-fixed');
-      }
-    if(currentTop < 40)
-        element.removeClass('search-fixed');
-  };
+  // $scope.gotScrolled = function(){
+  //   var currentTop = $ionicScrollDelegate.$getByHandle('scroller').getScrollPosition().top;
+  //   var element = $("#search-row");
+  //   if(currentTop > 40);
+  //     if(!element.hasClass("search-fixed"))
+  //     {
+  //       element.addClass('search-fixed');
+  //     }
+  //   if(currentTop < 40)
+  //       element.removeClass('search-fixed');
+  // };
   }])

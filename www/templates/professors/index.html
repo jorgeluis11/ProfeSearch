@@ -4,11 +4,11 @@
     <!-- End Splash Screen -->
     <ion-view>
       <ion-content  overflow-scroll="true">
-      <ion-scroll delegate-handle="scroller" direction="y" on-scroll="gotScrolled()" style="width: inherit; height: inherit">
+      <!-- <ion-scroll delegate-handle="scroller" direction="y" on-scroll="gotScrolled()" style="width: inherit; height: inherit"> -->
       <div id="header-custom" class="row">
-        <h1 id="text-logo">
+        <h2 id="text-logo">
            ProfeSearch
-        </h1>
+        </h2>
       </div>
     </div>
        
@@ -27,7 +27,7 @@
         <!--data-tap-disabled="true"-->
         
 
-        <!-- <div id="prof-container" ng-show="createProf" class="animate-show">
+        <div id="prof-container" ng-show="createProf" class="animate-show">
             <center>
               <h3>
               El professor que ha buscado no se encuentra.
@@ -40,17 +40,17 @@
               </h2>
             </h3>
             </center>
-        </div> -->
+        </div>
         
         <!-- professorsList Directive -->
         <professors-list></professors-list>
         <!-- End professorsList -->
-        </ion-scroll>
+        <!-- </ion-scroll> -->
       </ion-content>
 </ion-view>
 
 <div id="loading" ng-show="loading">
         <div id="loading-icon">
-          <img id="loading-icon-img" src="img/loading.GIF" >
+          <img id="loading-icon-img" src="img/loading.gif" >
         </div>
     </div>  
