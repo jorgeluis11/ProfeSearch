@@ -1,6 +1,6 @@
 angular.module('profeSearchStarter')
-.controller("professorController", ['$scope','$ionicModal','$ionicScrollDelegate','Professor' ,
-  function($scope, $ionicModal,$ionicScrollDelegate,Professor){
+.controller("professorController", ['$scope','$ionicModal','$ionicScrollDelegate','$ionicPlatform','Professor' ,
+  function($scope, $ionicModal,$ionicScrollDelegate,$ionicPlatform, Professor){
     $scope.loading = false;
     $scope.professors = [];
     $scope.createProf = false;
@@ -32,6 +32,10 @@ angular.module('profeSearchStarter')
     };
     
     $scope.openModal = function(id) {
+      if(window.cordova && window.cordova.plugins.Keyboard)
+      {
+        window.cordova.plugins.Keyboard.close();
+      }
       $scope.loading = true;
       Professor.get(id)
       .success(function(data){
@@ -39,7 +43,7 @@ angular.module('profeSearchStarter')
         scope: $scope,
         animation: 'slide-in-up'
         }).then(function(modal) {
-          modal.id = 'profesor-modal';
+          modal.id = 'info-modal';
           $scope.modal = modal;
           $scope.modal.show()
           AdMob.showBanner(AdMob.AD_POSITION.BOTTOM_CENTER);
@@ -50,18 +54,24 @@ angular.module('profeSearchStarter')
           $scope.loading = false;
           $scope.modal.profesor = data;
         });
+
       });
-  }
+  };
 
   $scope.addComment = function(slug){
     window.open('https://notaso.com/professors/'+slug+"/", '_system', 'location=yes')
-  }
+  };
 
   $scope.closeModal = function() {
-    AdMob.hideBanner();
     $scope.modal.hide();
-    $scope.modal.remove();
+      $scope.modal.remove();
+    // $scope.modal.remove();
   };
+
+   $scope.$on('modal.hidden', function() {
+          AdMob.hideBanner();
+   });
+
 
   // $scope.gotScrolled = function(){
   //   var currentTop = $ionicScrollDelegate.$getByHandle('scroller').getScrollPosition().top;

@@ -29,17 +29,18 @@
                 banner: 'ca-app-pub-xxx/zzz', // or DFP format "/6253334/dfp_example_ad"
             };
         }
-         if(AdMob) AdMob.createBanner( {
-           adId:admobid.banner, 
-            position:AdMob.AD_POSITION.BOTTOM_CENTER, 
-            autoShow:false,
-            overlap:false, 
-            isTesting:false
-             } );
+         // if(AdMob != undefined) 
+         //  AdMob.createBanner( {
+         //   adId:admobid.banner, 
+         //    position:AdMob.AD_POSITION.BOTTOM_CENTER, 
+         //    autoShow:false,
+         //    overlap:false, 
+         //    isTesting:false
+         //     } );
 
         // }
-    
       })
+    
 })
   .config(function($stateProvider, $urlRouterProvider){
 
@@ -62,3 +63,4 @@
   })
   // var app = angular.module("profesors",[])
 // })();
+

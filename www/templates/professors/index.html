@@ -1,14 +1,19 @@
                 
     <!-- Splash Directive -->
-    <splash-screen fade="submit" fade-duration="1" fade-target="intro"></splash-screen>
+    <!-- <splash-screen fade="submit" fade-duration="1" fade-target="intro"></splash-screen> -->
     <!-- End Splash Screen -->
     <ion-view>
       <ion-content  overflow-scroll="true">
-      <!-- <ion-scroll delegate-handle="scroller" direction="y" on-scroll="gotScrolled()" style="width: inherit; height: inherit"> -->
+      <ion-scroll delegate-handle="scroller" direction="y" style="width: inherit; height: inherit">
       <div id="header-custom" class="row">
-        <h2 id="text-logo">
+        <div id="burger-container">
+          <hamburger></hamburger>
+        </div>
+        <h1 id="text-logo" style="float:left;">
            ProfeSearch
-        </h2>
+        </h1>
+        <div id="modal-black-background">
+        </div>
       </div>
     </div>
        
@@ -45,7 +50,7 @@
         <!-- professorsList Directive -->
         <professors-list></professors-list>
         <!-- End professorsList -->
-        <!-- </ion-scroll> -->
+        </ion-scroll>
       </ion-content>
 </ion-view>
 
