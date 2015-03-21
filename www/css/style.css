@@ -4,6 +4,10 @@ body{
 	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
+.scroll-view{
+    display: inline;
+}
+
 /*Splash CSS*/
 #intro
 {
@@ -48,6 +52,8 @@ body{
 	width: 50%;
 	max-width: 360px;
 }
+
+
 
 #intro-logo-search
 {
@@ -175,7 +181,6 @@ ion-content
 	-webkit-border-radius: 6px;
 	-moz-border-radius: 6px;
 	border-radius: 6px;
-
 }
 
 #logo
@@ -201,6 +206,68 @@ ion-content
 }*/
 
 /*End Search Row*/
+
+.search-bar-size
+{
+  border-radius:6px;
+  height:30px;
+  text-align:center;
+}
+
+.search-bar-size-less
+{
+  width:85% !important;
+  -webkit-animation: search-less-size .3s ease-in forwards;
+  -o-animation: search-less-size .3s ease-in forwards;
+  animation: search-less-size .3s ease-in forwards;
+
+}
+
+.search-bar-size-more
+{
+  -webkit-animation: search-more-size .4s linear normal;
+  -o-animation: search-more-size .4s ease-in forwards;
+  animation: search-more-size .4s ease-in forwards;
+
+}
+
+.ssearch-bar-size:focus{
+  background-color: black;
+}
+
+.search-bard-size:hover{
+  background-color: black;
+}
+
+@-webkit-keyframes search-less-size{
+  from{
+    width:100%;
+  }
+  to{
+      width:85%;
+  }
+}
+
+@-webkit-keyframes search-more-size{
+  from{
+    width:85%;
+  }
+  to{
+      width:100%;
+  }
+}
+
+#cancel-search{
+  position: absolute;
+  right: 0;
+  margin: 8px 6px;
+  z-index:999;
+  display:none;
+  }
+
+/*#blank-search{
+  margin-right: 40%;
+}*/
 
 .professor-list{
 	height: 65px;
@@ -545,7 +612,6 @@ ion-content
   }
   to{
       background-color: rgba(0,0,0,0.5);
-
   }
 }
 
