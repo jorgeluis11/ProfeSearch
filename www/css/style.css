@@ -194,8 +194,6 @@ ion-content
 	color: #fff;
 	text-align: center;
 	background-color: #0B4F84;
-	border-top: 1px solid #134C75;
-	border-bottom: 1px solid #134C75;
 }
 
 /*.search-fixed{
@@ -207,6 +205,64 @@ ion-content
 
 /*End Search Row*/
 
+.search-bar-label{
+  border-radius:6px;
+  height:30px;
+  text-align:center;
+  padding-left:30%;
+}
+
+.search-bar-label-animation-less{
+  padding-left:2%;
+-webkit-transform: translateZ(0px);
+    transform: translateZ(0);
+  -webkit-animation: search-label-less .2s linear normal;
+  -o-animation: search-label-less .2s ease-in forwards;
+  animation: search-label-less .2s ease-in forwards;
+}
+
+@-webkit-keyframes search-label-less{
+  from{
+    padding-left:30%;
+  }
+  to{
+      padding-left:2%;
+  }
+}
+
+@keyframes search-label-less{
+  from{
+    padding-left:30%;
+  }
+  to{
+      padding-left:2%;
+  }
+}
+
+.search-bar-label-animation-more{
+-webkit-transform: translateZ(0px);
+    transform: translateZ(0);
+  -webkit-animation: search-label-more .4s linear normal;
+  -o-animation: search-label-more .4s ease-in forwards;
+  animation: search-label-more .4s ease-in forwards;
+}
+@-webkit-keyframes search-label-more{
+  from{
+    padding-left:2%;
+  }
+  to{
+      padding-left:30%;
+  }
+}
+@-webkit-keyframes search-label-more{
+  from{
+    padding-left:2%;
+  }
+  to{
+      padding-left:30%;
+  }
+}
+
 .search-bar-size
 {
   border-radius:6px;
@@ -217,29 +273,33 @@ ion-content
 .search-bar-size-less
 {
   width:85% !important;
-  -webkit-animation: search-less-size .3s ease-in forwards;
-  -o-animation: search-less-size .3s ease-in forwards;
-  animation: search-less-size .3s ease-in forwards;
-
+  -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+  -webkit-animation: search-less-size .2s ease-in forwards;
+  -o-animation: search-less-size .2s ease-in forwards;
+  animation: search-less-size .2s ease-in forwards;
 }
 
 .search-bar-size-more
 {
+  -webkit-transform: translateZ(0);
+    transform: translateZ(0);
   -webkit-animation: search-more-size .4s linear normal;
   -o-animation: search-more-size .4s ease-in forwards;
   animation: search-more-size .4s ease-in forwards;
-
-}
-
-.ssearch-bar-size:focus{
-  background-color: black;
-}
-
-.search-bard-size:hover{
-  background-color: black;
+  width:100% !important;
 }
 
 @-webkit-keyframes search-less-size{
+  from{
+    width:100%;
+  }
+  to{
+      width:85%;
+  }
+}
+
+@keyframes search-less-size{
   from{
     width:100%;
   }
@@ -257,17 +317,51 @@ ion-content
   }
 }
 
+@keyframes search-more-size{
+  from{
+    width:85%;
+  }
+  to{
+      width:100%;
+  }
+}
+
 #cancel-search{
   position: absolute;
   right: 0;
   margin: 8px 6px;
-  z-index:999;
+  z-index:999999;
   display:none;
   }
 
 /*#blank-search{
   margin-right: 40%;
 }*/
+
+/*Filter Row*/
+
+#filter-row{
+  border-top:1px rgba();
+  text-align:center;
+  background-color:#0B4F84;
+  color:white;
+  height:8%;
+}
+
+
+/*.dropdown-filter{
+  float:left;
+  border-radius:none;
+  width:50%;
+  background-color: #0B4F84;
+  height: 25px !important;
+  font-size: 18px;
+  border: none;
+  color: white;
+}
+*/
+
+/*End Filter*/
 
 .professor-list{
 	height: 65px;

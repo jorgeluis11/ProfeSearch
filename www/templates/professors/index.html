@@ -19,8 +19,8 @@
        
         <div id="search-row" class="row">
           <div class="col" search-animation-event>
-            <form ng-submit="jsonProf(query)" >
-            <label class="item item-input search-bar-size" >
+            <form class="search-bar-size" ng-submit="jsonProf(query)" >
+            <label class="item item-input search-bar-label" >
                 <i class="icon ion-search placeholder-icon"></i>
                 <input id="search" type="search" placeholder="Busca un professor" ng-model="query"/>
                 <input type="submit" style="position: absolute; left: -9999px; width: 1px; height: 1px;"/>
@@ -32,10 +32,26 @@
             Cancel
           </div>
         </div>
-        <div id="filter-row" class="row">
-          <div class="col" >
-           <i class="ion-funnel"></i>Busqueda Avanzada
-          </div> 
+        <div id="filter-row">
+          <div>
+            <i class="ion-funnel"></i> Filtrar
+          </div>
+        <div style="clear:both;">
+            
+          </div>
+
+                <select class="dropdown-filter">
+                  <option selected>Universidades</option>
+                  <option >Green</option>
+                  <option>Red</option>
+                </select>
+          
+                <select class="dropdown-filter">
+                  <option selected>Departamentos</option>
+                  <option >Green</option>
+                  <option>Red</option>
+                </select>
+          
         </div>
 
         <!--data-tap-disabled="true"-->

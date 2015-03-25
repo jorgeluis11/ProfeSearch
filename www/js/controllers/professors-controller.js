@@ -4,12 +4,22 @@ angular.module('profeSearchStarter')
     $scope.loading = false;
     $scope.professors = [];
     $scope.createProf = false;
+    $scope.lastSearch = "";
 
     $scope.jsonProf = function(query){
+
       if(window.cordova && window.cordova.plugins.Keyboard)
       {
         window.cordova.plugins.Keyboard.close();
       }
+     
+      $("#search").val("").blur();
+      $("[search-animation-event]").css("display:none;");
+      $("[search-animation-event]").css("z-index","0").find(".search-bar-size").removeClass("search-bar-size-less").addClass("search-bar-size-more");
+          $("#burger").css("z-index","99999999");
+          $("#cancel-search").fadeOut(400);
+          $("#modal-black-background").css("display","none");
+          $(".search-bar-label").removeClass("search-bar-label-animation-less").addClass("search-bar-label-animation-more");
       
       if( query !== undefined && query !== "")
       {
@@ -29,6 +39,7 @@ angular.module('profeSearchStarter')
         $scope.createProf = true;
         $scope.professors = [];
       }
+      
     };
     
     $scope.openModal = function(id) {

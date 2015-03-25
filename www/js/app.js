@@ -35,10 +35,10 @@
          //    position:AdMob.AD_POSITION.BOTTOM_CENTER, 
          //    autoShow:false,
          //    overlap:false, 
-         //    isTesting:false
+         //    isTesting:true
          //     } );
 
-        // }
+        }
       })
     
 })
