@@ -38,11 +38,9 @@
          //    isTesting:true
          //     } );
 
-        }
+        });
       })
-    
-})
-  .config(function($stateProvider, $urlRouterProvider){
+    .config(function($stateProvider, $urlRouterProvider){
 
     //$stateProvider.state('splash', {
         // url: '/',
