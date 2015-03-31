@@ -34,7 +34,8 @@ return{
               scope.modal.hide();
       		  scope.modal.remove();
       		  $("body").removeClass("click-event");
-      		  $("#modal-black-background").css("display","none");
+      		  $("#modal-black-background").fadeOut(200);
+      		  $(".modal-backdrop").fadeOut(200);
             } else {
               trigger.removeClass('is-closed');
               trigger.addClass('is-open');
@@ -48,7 +49,7 @@ return{
 		          scope.modal = modal;
 		          scope.modal.show()
 		          $(modal.$el[0]).addClass("modal-info");
-		          $("#modal-black-background").css("display","block");
+		          $("#modal-black-background").show();
         	});
 		    }
           });         

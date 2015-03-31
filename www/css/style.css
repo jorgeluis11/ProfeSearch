@@ -181,6 +181,7 @@ ion-content
 	-webkit-border-radius: 6px;
 	-moz-border-radius: 6px;
 	border-radius: 6px;
+  padding-top: 6px;
 }
 
 #logo
@@ -665,6 +666,18 @@ ion-content
 
 #info{
  
+  color:white;
+  margin-top: 20%;
+
+}
+
+#info h1{
+  color:white;
+  font-size: 3em;
+  margin-top: 8%;
+    margin-bottom: 8%;
+
+  font-family: Arial;
 }
 
 .modal-info
@@ -684,10 +697,10 @@ ion-content
   width: 100%;  
   z-index:888;
   display:none;
-  -webkit-animation: background-animation .2s linear normal;
-  -o-animation: background-animation .2s linear normal;
-  animation: background-animation .2s linear normal;
-  background-color: rgba(0,0,0,0.5);
+  -webkit-animation: background-animation .2s ease-in forwards;
+  -o-animation: background-animation .2s ease-in forwards;
+  animation: background-animation .2s ease-in forwards;
+  background-color: rgba(0,0,0,.85);
 }
 
 @-webkit-keyframes background-animation{
@@ -695,7 +708,7 @@ ion-content
       background-color: rgba(0,0,0,0);
   }
   to{
-      background-color: rgba(0,0,0,0.5);
+      background-color: rgba(0,0,0,0.85);
 
   }
 }
@@ -705,8 +718,43 @@ ion-content
       background-color: rgba(0,0,0,0);
   }
   to{
-      background-color: rgba(0,0,0,0.5);
+      background-color: rgba(0,0,0,0.85);
   }
+}
+
+.modal-black-background-close
+{
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;  
+  z-index:888;
+  display:none;
+  -webkit-animation: background-animation-close .2s ease-in forwards;
+  -o-animation: background-animation .2s ease-in forwards;
+  animation: background-animation .2s ease-in forwards;
+  background-color: rgba(0,0,0,0);
+}
+
+@-webkit-keyframes background-animation-close{
+  from{
+      background-color: rgba(0,0,0,0.85);
+  }
+  to{
+      background-color: rgba(0,0,0,0);
+
+  }
+}
+
+@keyframes background-animation-close{
+  from{
+      background-color: rgba(0,0,0,0.85);
+  }
+  to{
+      background-color: rgba(0,0,0,0);
+  }
+
 }
 
 /*SVG Animation*/

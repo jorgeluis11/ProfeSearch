@@ -57,11 +57,11 @@ angular.module('profeSearchStarter')
           modal.id = 'info-modal';
           $scope.modal = modal;
           $scope.modal.show()
-          AdMob.showBanner(AdMob.AD_POSITION.BOTTOM_CENTER);
-          if(/(ipod|iphone|ipad)/i.test(navigator.userAgent)) { // for ios
-            $("#header-custom").css({"padding-top":"20px"});
-            $(".modal-size").css({"margin-top":"12px"});
-          }
+          // AdMob.showBanner(AdMob.AD_POSITION.BOTTOM_CENTER);
+          // if(/(ipod|iphone|ipad)/i.test(navigator.userAgent)) { // for ios
+          //   $("#header-custom").css({"padding-top":"20px"});
+          //   $(".modal-size").css({"margin-top":"12px"});
+          // }
           $scope.loading = false;
           $scope.modal.profesor = data;
         });
@@ -80,7 +80,7 @@ angular.module('profeSearchStarter')
   };
 
    $scope.$on('modal.hidden', function() {
-          AdMob.hideBanner();
+          // AdMob.hideBanner();
    });
 
 
