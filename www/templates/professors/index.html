@@ -4,7 +4,6 @@
     <!-- End Splash Screen -->
     <ion-view>
       <ion-content  overflow-scroll="true">
-      <ion-scroll delegate-handle="scroller" direction="y" style="width: inherit; height: inherit">
       <div id="header-custom" class="row">
         <div id="burger-container">
           <hamburger></hamburger>
@@ -12,14 +11,16 @@
         <h1 id="text-logo" style="float:left;">
            ProfeSearch
         </h1>
+        <div id="filter-funnel" >
+          <i id="filter-result" class="ion-funnel" filter ng-click="restartFilter('filter-result')" show="filter-row"></i>
+        </div>
         <div id="modal-black-background">
         </div>
       </div>
     </div>
-       
         <div id="search-row" class="row">
-          <div class="col" search-animation-event>
-            <form class="search-bar-size" ng-submit="jsonProf(query)" >
+          <div id="search-target" class="col" >
+            <form search-animation-event class="search-bar-size" ng-submit="jsonProf(query)" >
             <label class="item item-input search-bar-label" >
                 <i class="icon ion-search placeholder-icon"></i>
                 <input id="search" type="search" placeholder="Busca un professor" ng-model="query"/>
@@ -28,44 +29,41 @@
               </form>
             </label>
           </div> 
-          <div id="cancel-search" close>
+          <div id="cancel-search">
             Cancel
           </div>
         </div>
         <div id="filter-row">
-          <div>
-            <i class="ion-funnel"></i> Filtrar
-          </div>
-        <div style="clear:both;">
-            
-          </div>
-
-                <select class="dropdown-filter">
-                  <option selected>Universidades</option>
-                  <option >Green</option>
-                  <option>Red</option>
+            <span >
+              Filter Result
+            </span>
+                <select id="university-filter" class="dropdown-filter disabled" ng-model="university" ng-options="professor.university_name for professor in resultCopy | unique:'university_name' | orderBy:'university_name'" ng-change="updateProfessorList(university.university_name, 'university_name')" disable target="body">
+                  <option value="" selected > Todas las Universidades</option>
                 </select>
           
-                <select class="dropdown-filter">
-                  <option selected>Departamentos</option>
-                  <option >Green</option>
-                  <option>Red</option>
+                <select id="department-filter" class="dropdown-filter disabled" ng-model="department" ng-options="professor.department_name for professor in resultCopy | unique:'department_name' | orderBy:'department_name'" ng-change="updateProfessorList(department.department_name,'department_name')" disable target="body">
+                 <option value="" selected>Todos los departamentos</option>
                 </select>
-          
-        </div>
-
-        <!--data-tap-disabled="true"-->
-        
+                
+                <div style="clear:both;">
+                </div>
+          </div>        
 
         <div id="prof-container" ng-show="createProf" class="animate-show">
             <center>
-              <h3>
-              El professor que ha buscado no se encuentra.
+              <h3 >
+                <span ng-hide="filterFail">
+                  El professor que ha buscado no se encuentra.
+                </span>
+                <span ng-show="filterFail">
+                  El professor que ha buscado bajo esta universidad y departamento no se encuentra
+
+                </span>
               <br>Puede crearlo en
               <br>
               <h2 class="modal-no-comments-title">
               <a href="#" onclick="window.open('https://notaso.com/professors/create/', '_system', 'location=yes')">
-                 Notaso
+                 www.Notaso.com
               </a>
               </h2>
             </h3>
@@ -75,7 +73,6 @@
         <!-- professorsList Directive -->
         <professors-list></professors-list>
         <!-- End professorsList -->
-        </ion-scroll>
       </ion-content>
 </ion-view>
 

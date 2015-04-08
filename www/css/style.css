@@ -8,6 +8,14 @@ body{
     display: inline;
 }
 
+ion-scroll[direction=x] {
+  width: 100vw;
+}
+ion-scroll[direction=y] {
+  height: 100vh;
+}
+
+
 /*Splash CSS*/
 #intro
 {
@@ -243,9 +251,9 @@ ion-content
 .search-bar-label-animation-more{
 -webkit-transform: translateZ(0px);
     transform: translateZ(0);
-  -webkit-animation: search-label-more .4s linear normal;
-  -o-animation: search-label-more .4s ease-in forwards;
-  animation: search-label-more .4s ease-in forwards;
+  -webkit-animation: search-label-more .2s linear normal;
+  -o-animation: search-label-more .2s ease-in forwards;
+  animation: search-label-more .2s ease-in forwards;
 }
 @-webkit-keyframes search-label-more{
   from{
@@ -285,9 +293,9 @@ ion-content
 {
   -webkit-transform: translateZ(0);
     transform: translateZ(0);
-  -webkit-animation: search-more-size .4s linear normal;
-  -o-animation: search-more-size .4s ease-in forwards;
-  animation: search-more-size .4s ease-in forwards;
+  -webkit-animation: search-more-size .2s linear normal;
+  -o-animation: search-more-size .2s ease-in forwards;
+  animation: search-more-size .2s ease-in forwards;
   width:100% !important;
 }
 
@@ -330,7 +338,7 @@ ion-content
 #cancel-search{
   position: absolute;
   right: 0;
-  margin: 8px 6px;
+  margin: 8px 5px;
   z-index:999999;
   display:none;
   }
@@ -341,15 +349,44 @@ ion-content
 
 /*Filter Row*/
 
+ 
 #filter-row{
+  display: none;
   border-top:1px rgba();
-  text-align:center;
   background-color:#0B4F84;
   color:white;
-  height:8%;
+  padding-top: 2px;
+  padding-bottom:5px;
+  background-color: #0B4F84;
 }
 
+#filter-row>span{
+  display: block;
+    text-align:center;
+    font-size: 1.2em;
+}
 
+.dropdown-filter{
+  width: 96%;
+  margin:5px 2%;
+  text-align: center;
+  height: 30px;
+  background: white !important;
+  border: none;
+  float:left;
+}
+
+#filter-funnel{
+  float:left;
+  margin-left: 5px;
+  height: 20px;
+    margin-top: 8px;
+}
+ 
+
+#filter-result{
+  visibility: hidden; font-size:2em; margin-right: 2px; color:white;z-index: 0;
+}
 /*.dropdown-filter{
   float:left;
   border-radius:none;
@@ -426,6 +463,7 @@ ion-content
 
 
 /*professor modal*/
+
 
 #title-modal{
 	background-color:#0B4F85;
@@ -588,13 +626,13 @@ ion-content
 .animate-repeat.ng-enter,
 
  {
-    -webkit-transition:all ease-out 0.5s;
-    transition:all ease-out 0.5s;
+    -webkit-transition:all ease-out 0.1s;
+    transition:all ease-out 0.1s;
 }
 .animate-repeat.ng-leave
 {
-	-webkit-transition:all ease-out 0.3s;
-    transition:all ease-out 0.3s;
+	-webkit-transition:all ease-out 0.1s;
+    transition:all ease-out 0.1s;
 }
 
 
@@ -627,8 +665,8 @@ ion-content
 }
 
 .animate-repeat.ng-enter-stagger {
-    -webkit-transition-delay: 0.3s;
-    transition-delay: 0.3s;
+    -webkit-transition-delay: 0.1s;
+    transition-delay: 0.1s;
 
     -webkit-transition-duration: 0s;
     transition-duration: 0s;
@@ -640,12 +678,12 @@ ion-content
 }
 
 .animate-show.ng-hide-remove.ng-hide-remove-active {
-  -webkit-transition: opacity linear 0.5s;
-  transition: opacity linear 0.5s;
+  -webkit-transition: opacity linear 0.1s;
+  transition: opacity linear 0.1s;
 }
 .animate-show.ng-hide-add.ng-hide-add-active{
-	-webkit-transition: opacity linear 0.3s;
-  transition: opacity linear 0.3s;
+	-webkit-transition: opacity linear 0.1s;
+  transition: opacity linear 0.1s;
 }
 
 .animate-show.ng-hide {
@@ -665,10 +703,9 @@ ion-content
 /*Modal Info*/
 
 #info{
- 
-  color:white;
-  margin-top: 20%;
 
+  color:white;
+  margin-top: 25%;
 }
 
 #info h1{
@@ -684,7 +721,7 @@ ion-content
 {
   position: absolute;
   top:7%;
-  height:94%;
+  height:93%;
   background-color:rgba(0,0,0,0) !important;
 }
 
@@ -693,7 +730,7 @@ ion-content
   position: absolute;
   top: 0;
   left: 0;
-  height: 100%;
+  height: 101%;
   width: 100%;  
   z-index:888;
   display:none;
@@ -757,12 +794,33 @@ ion-content
 
 }
 
+/*About Modal*/
+#about-modal{
+    position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  width: 100%;
+  height: 100%;
+
+}
+
+a[link]
+{
+    color:white;
+}
+
+a.no-decoration
+{
+  text-decoration: none;
+}
+
 /*SVG Animation*/
 #burger-container{
   float:left;
   margin-left: 5px;
   height: 20px;
-  margin-top: 12px;
+    margin-top: 8px;
    -webkit-transform: translate3d(0px,0px,0px);
     -webkit-backface-visibility: hidden;
     transform: translate3d(0px,0px,0px);
@@ -777,8 +835,9 @@ ion-content
   /*margin: 40px auto;*/
   position: relative;
   display: block;
-  width: 38px;
-  height: 30px;
+  height: 27px;
+  width: 27px;
+  padding-top: 5px;
   -webkit-touch-callout: none;
   -webkit-user-select: none;
      -moz-user-select: none;
@@ -890,27 +949,27 @@ ion-content
 }
 
 .hamburglar.is-open .path {
-  -webkit-animation: dash-in 0.3s linear normal;
-          animation: dash-in 0.3s linear normal;
+  -webkit-animation: dash-in 0.2s linear normal;
+          animation: dash-in 0.2s linear normal;
   -webkit-animation-fill-mode: forwards;
           animation-fill-mode: forwards;
 }
 .hamburglar.is-open .animate-path {
-  -webkit-animation: rotate-in 0.3s linear normal;
-          animation: rotate-in 0.3s linear normal;
+  -webkit-animation: rotate-in 0.2s linear normal;
+          animation: rotate-in 0.2s linear normal;
   -webkit-animation-fill-mode: forwards;
           animation-fill-mode: forwards;
 }
 
 .hamburglar.is-closed .path {
-  -webkit-animation: dash-out 0.3s linear normal;
-          animation: dash-out 0.3s linear normal;
+  -webkit-animation: dash-out 0.2s linear normal;
+          animation: dash-out 0.2s linear normal;
   -webkit-animation-fill-mode: forwards;
           animation-fill-mode: forwards;
 }
 .hamburglar.is-closed .animate-path {
-  -webkit-animation: rotate-out 0.3s linear normal;
-          animation: rotate-out 0.3s linear normal;
+  -webkit-animation: rotate-out 0.2s linear normal;
+          animation: rotate-out 0.2s linear normal;
   -webkit-animation-fill-mode: forwards;
           animation-fill-mode: forwards;
 }
@@ -969,7 +1028,7 @@ ion-content
 .burger-icon {
   /*position: absolute;*/
   /*padding: 20px 16px;*/
-  height: 38px;
+  height: 30px;
   width: 30px;
 }
 
@@ -1030,27 +1089,27 @@ ion-content
 }
 
 .hamburglar.is-open .burger-bun-top {
-  -webkit-animation: bun-top-out 0.3s linear normal;
-          animation: bun-top-out 0.3s linear normal;
+  -webkit-animation: bun-top-out 0.2s linear normal;
+          animation: bun-top-out 0.2s linear normal;
   -webkit-animation-fill-mode: forwards;
           animation-fill-mode: forwards;
 }
 .hamburglar.is-open .burger-bun-bot {
-  -webkit-animation: bun-bot-out 0.3s linear normal;
-          animation: bun-bot-out 0.3s linear normal;
+  -webkit-animation: bun-bot-out 0.2s linear normal;
+          animation: bun-bot-out 0.2s linear normal;
   -webkit-animation-fill-mode: forwards;
           animation-fill-mode: forwards;
 }
 
 .hamburglar.is-closed .burger-bun-top {
-  -webkit-animation: bun-top-in 0.3s linear normal;
-          animation: bun-top-in 0.3s linear normal;
+  -webkit-animation: bun-top-in 0.2s linear normal;
+          animation: bun-top-in 0.2s linear normal;
   -webkit-animation-fill-mode: forwards;
           animation-fill-mode: forwards;
 }
 .hamburglar.is-closed .burger-bun-bot {
-  -webkit-animation: bun-bot-in 0.3s linear normal;
-          animation: bun-bot-in 0.3s linear normal;
+  -webkit-animation: bun-bot-in 0.2s linear normal;
+          animation: bun-bot-in 0.2s linear normal;
   -webkit-animation-fill-mode: forwards;
           animation-fill-mode: forwards;
 
@@ -1280,8 +1339,8 @@ ion-content
 }
 
 .hamburglar.is-closed .burger-filling.burger-fill-android {
-  -webkit-animation: burger-fill-in-android 0.3s ease-in normal;
-          animation: burger-fill-in-android 0.3s ease-in normal;
+  -webkit-animation: burger-fill-in-android 0.2s ease-in normal;
+          animation: burger-fill-in-android 0.2s ease-in normal;
   -webkit-animation-fill-mode: forwards;
           animation-fill-mode: forwards;
           display: block!important;

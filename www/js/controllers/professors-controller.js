@@ -1,46 +1,113 @@
 angular.module('profeSearchStarter')
-.controller("professorController", ['$scope','$ionicModal','$ionicScrollDelegate','$ionicPlatform','Professor' ,
-  function($scope, $ionicModal,$ionicScrollDelegate,$ionicPlatform, Professor){
+.controller("professorController", ['$scope','$filter','$timeout', '$ionicModal','$ionicScrollDelegate','$ionicPlatform','Professor' ,
+  function($scope,$filter, $timeout, $ionicModal,$ionicScrollDelegate,$ionicPlatform, Professor){
     $scope.loading = false;
     $scope.professors = [];
     $scope.createProf = false;
     $scope.lastSearch = "";
+    $scope.query = "";
+    $scope.resultCopy = [];
+    $scope.university = undefined;
+    $scope.department = undefined;
 
     $scope.jsonProf = function(query){
+          $scope.filterFail = false;
+
+      $("#modal-black-background, #cancel-search").unbind("click");
+      $("#filter-result").css("color","white");
+      $("#filter-result").css("visibility","hidden");
+      $("#filter-row").slideUp(200);
+
 
       if(window.cordova && window.cordova.plugins.Keyboard)
       {
         window.cordova.plugins.Keyboard.close();
       }
-     
-      $("#search").val("").blur();
-      $("[search-animation-event]").css("display:none;");
-      $("[search-animation-event]").css("z-index","0").find(".search-bar-size").removeClass("search-bar-size-less").addClass("search-bar-size-more");
-          $("#burger").css("z-index","99999999");
-          $("#cancel-search").fadeOut(400);
-          $("#modal-black-background").css("display","none");
-          $(".search-bar-label").removeClass("search-bar-label-animation-less").addClass("search-bar-label-animation-more");
-      
+      $("#search").blur();
+          $("#cancel-search").fadeOut(200);
+          $("#modal-black-background").fadeOut(200,function(){
+            $("#burger-container").css("z-index","99999999");
+            $("#search-target").css("display:none;");
+            $("#search-target").css("z-index","0");
+          });
+          $("#search-target").find(".search-bar-size").removeClass("search-bar-size-less").addClass("search-bar-size-more");
+          $("#modal-black-background, #cancel-search").unbind("click");
       if( query !== undefined && query !== "")
       {
         Professor.all(query)
         .success(function(data){
-          $scope.professors = (data);
-          if(data.count === 0)
-          {
-            $scope.professors = [];
-            $scope.createProf = true;
+          if (data.next){
+            nextPage(data,query);
           }
           else
-            $scope.createProf = false;
-        })
+            processData(data)
+        });
       }
       else{
+        $(".search-bar-label").removeClass("search-bar-label-animation-less").addClass("search-bar-label-animation-more");
+        $("#search").val("").blur();
         $scope.createProf = true;
         $scope.professors = [];
+        $scope.resultCopy = [];
+        $("#filter-result").css("visibility","hidden");
+        $("#filter-row").slideUp(200);
       }
       
     };
+
+    function nextPage(data,query){
+      if(data.next){
+        Professor.nextPage(query,data.next).success(function(dataPage2){
+              for(result in dataPage2.results)
+                data.results.push(dataPage2.results[result]);
+              data.next = dataPage2.next;
+              nextPage(data, query);
+            });
+      }else{
+        console.log("process");
+        return processData(data);
+      }
+    }
+
+    function processData(data){
+      $scope.professors = data;
+      $scope.resultCopy = data.results;
+      $scope.university = undefined;
+          $scope.department = undefined;
+
+          if(data.count === 0)
+          {
+            $scope.professors = [];
+            $scope.resultCopy = [];
+            $scope.createProf = true;
+            $("#filter-row").slideUp(200);
+
+          }
+          else{
+            $scope.createProf = false;
+            if (data.count > 1) 
+              $("#filter-result").css("visibility","visible");
+          }
+        
+    }
+
+    Professor.all()
+        .success(function(data){
+          $scope.professors = data;
+          $scope.resultCopy = data.results;
+          if(data.count === 0)
+          {
+            $scope.professors = [];
+            $scope.resultCopy = [];
+            $scope.createProf = true;
+            $("#filter-row").slideUp(200);
+          }
+          else{
+            $scope.createProf = false;
+            if (data.count > 1) 
+              $("#filter-result").css("visibility","visible");
+          }
+        })
     
     $scope.openModal = function(id) {
       if(window.cordova && window.cordova.plugins.Keyboard)
@@ -65,13 +132,20 @@ angular.module('profeSearchStarter')
           $scope.loading = false;
           $scope.modal.profesor = data;
         });
-
       });
   };
 
   $scope.addComment = function(slug){
     window.open('https://notaso.com/professors/'+slug+"/", '_system', 'location=yes')
   };
+
+  $scope.restartFilter = function(element){
+    if($("#filter-result").css("color") !== "rgb(255, 255, 255)")
+    {
+      $scope.university=undefined;
+      $scope.professors.results = $scope.resultCopy;
+    }
+  }
 
   $scope.closeModal = function() {
     $scope.modal.hide();
@@ -82,6 +156,38 @@ angular.module('profeSearchStarter')
    $scope.$on('modal.hidden', function() {
           // AdMob.hideBanner();
    });
+
+
+   $scope.updateProfessorList = function(selected, filter){
+    
+
+      if (filter === "university_name") 
+        $scope.university = selected;
+      if (filter === "department_name") 
+        $scope.department = selected;
+      var jsonVariable = {};
+    
+      if ($scope.university) 
+          jsonVariable["university_name"] = $scope.university;
+
+      if ($scope.department)
+          jsonVariable["department_name"] = $scope.department;
+
+      if ($scope.university !== undefined || $scope.department !== undefined) 
+      {
+        $scope.professors.results = $filter('filter')($scope.resultCopy, jsonVariable);
+      }
+      else
+        $scope.professors.results = $scope.resultCopy;
+
+      if ($scope.professors.results.length === 0) {
+            $scope.createProf = true;
+            $scope.filterFail = true;
+      }else{
+          $scope.createProf = false;
+          $scope.filterFail = false;
+      };
+   }
 
 
   // $scope.gotScrolled = function(){

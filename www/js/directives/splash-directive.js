@@ -1,9 +1,10 @@
 angular.module('profeSearchStarter').
-directive('splashScreen', [function () {
+directive('splashScreen', [function ($scope) {
 	return {
 		templateUrl: 'templates/base/splash.html',
 		restrict: 'E',
 		link: function(scope, element, attrs) {
+            scope.about = attrs.about;
             var fadeDuration = attrs.fadeDuration || 1000;
             var onEvent = attrs.fade || click;
 
