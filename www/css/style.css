@@ -4,15 +4,18 @@ body{
 	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
-.scroll-view{
+/*.scroll-view{
     display: inline;
+}*/
+
+.myScroll{
+  width: 100%;
+  height: 85.8%;
 }
 
-ion-scroll[direction=x] {
-  width: 100vw;
-}
-ion-scroll[direction=y] {
-  height: 100vh;
+.scroll-content{
+  position: initial !important;
+  margin:0 !important;
 }
 
 
@@ -26,6 +29,7 @@ ion-scroll[direction=y] {
 	z-index: 999;
 	width: 100%;
 	height: 100%;
+    z-index: 999999999;
 }
 
 #intro-logo
@@ -44,6 +48,8 @@ ion-scroll[direction=y] {
 {
 	padding-left: 6px;
 	font-size: 10px;
+  -webkit-border-radius:5px;
+  border-radius:5px;
 }
 #intro-logo-text{
 	margin-top: 5px;
@@ -66,7 +72,7 @@ ion-scroll[direction=y] {
 #intro-logo-search
 {
 	margin: 0 auto; 
-	width: 54%;
+	width: 60%;
 	-webkit-border-radius: 10px;
 	-moz-border-radius: 10px;
 	border-radius: 10px;
@@ -118,7 +124,7 @@ ion-scroll[direction=y] {
 	background-color: rgba(0,0,0,0.8);
 	z-index: 99999;
 	width: 100%;
-	height: 100%;
+	height: 101%;
 	transform: translate3d(0,0,0);
 }
 
@@ -357,7 +363,7 @@ ion-content
   color:white;
   padding-top: 2px;
   padding-bottom:5px;
-  background-color: #0B4F84;
+  background-color: #fv;
 }
 
 #filter-row>span{
@@ -403,6 +409,7 @@ ion-content
 
 .professor-list{
 	height: 65px;
+  padding-right: 0 !important;
 }
 
 .professor-list>a
@@ -411,6 +418,10 @@ ion-content
 	padding-bottom: 8px; 
  	padding-right: 10px; 
  	min-height: 0px; 
+}
+
+.item.active,.item.activated,.active,.activated{
+  background-color: none !important;
 }
 
 .department-label{
@@ -491,6 +502,20 @@ ion-content
 {
 	margin-left: 2%;
 }
+
+.list{
+  height: auto;
+    margin-bottom: 0 !important; 
+
+}
+
+.list2{
+  height: auto;
+  margin-bottom: 0 !important; 
+}
+
+.hide-scroll::-webkit-scrollbar { width: 0 !important }
+
 
 .list-comment-body
 {
@@ -584,11 +609,12 @@ ion-content
 {
 	display: block;
 }
+
 .view-slide-in.ng-enter {
   transition: all 1s ease;
-  -webkit-transition:all 1s ease;
-  -moz-transition: all 1s ease;
-  -o-transition: all 1s ease;
+  -webkit-transition:all .1s ease;
+  -moz-transition: all .1s ease;
+  -o-transition: all .1s ease;
    
   opacity:0.5;
   position:relative;
@@ -617,8 +643,8 @@ ion-content
 }
 
 .animate-repeat {
-    -webkit-transition: 1s ease-out all;
-    transition: 1s ease-out all;
+    -webkit-transition: .7s ease-out all;
+    transition: .7s ease-out all;
 
 }
 
@@ -665,8 +691,8 @@ ion-content
 }
 
 .animate-repeat.ng-enter-stagger {
-    -webkit-transition-delay: 0.1s;
-    transition-delay: 0.1s;
+    -webkit-transition-delay: 0.07s;
+    transition-delay: 0.07s;
 
     -webkit-transition-duration: 0s;
     transition-duration: 0s;
@@ -678,12 +704,12 @@ ion-content
 }
 
 .animate-show.ng-hide-remove.ng-hide-remove-active {
-  -webkit-transition: opacity linear 0.1s;
-  transition: opacity linear 0.1s;
+  -webkit-transition: opacity linear 0.07s;
+  transition: opacity linear 0.07s;
 }
 .animate-show.ng-hide-add.ng-hide-add-active{
-	-webkit-transition: opacity linear 0.1s;
-  transition: opacity linear 0.1s;
+	-webkit-transition: opacity linear 0.07s;
+  transition: opacity linear 0.07s;
 }
 
 .animate-show.ng-hide {
@@ -826,6 +852,7 @@ a.no-decoration
     transform: translate3d(0px,0px,0px);
     backface-visibility: visible;
       z-index: 99999999;
+      visibility: hidden;
 
 }
 .hamburglar {

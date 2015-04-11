@@ -8,8 +8,12 @@ directive('splashScreen', [function ($scope) {
             var fadeDuration = attrs.fadeDuration || 1000;
             var onEvent = attrs.fade || click;
 
-            // See how the directive alone controls the events, not the scope
             element.on(onEvent, function() {
+                if(window.cordova && window.cordova.plugins.Keyboard)
+                  {
+                    window.cordova.plugins.Keyboard.close();
+                  }
+                $("#search").val("");
                 var targetElement = $('#' + attrs.fadeTarget);
                 targetElement.fadeOut(700,function(){
                 	//Remove Parent

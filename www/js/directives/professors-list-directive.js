@@ -73,6 +73,7 @@ return{
 		link: function (scope, element, attrs, ctrl) {
 			var target = $("#search-target");
 			target.click(function(){
+				$("#search").focus();
 				$("#modal-black-background").fadeIn(200);
 				$("#burger-container").css("z-index","0");
 				target.css("z-index","99999").find(".search-bar-size").removeClass("search-bar-size-more").addClass("search-bar-size-less");

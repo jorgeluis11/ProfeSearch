@@ -16,11 +16,16 @@
     "shelljs": "^0.3.0"
   },
   "cordovaPlugins": [
-    "com.ionic.keyboard",
     "https://github.com/driftyco/ionic-plugins-keyboard.git",
     "org.apache.cordova.device",
     "org.apache.cordova.statusbar",
     "org.apache.cordova.console",
-    "com.google.cordova.admob"
+    "com.google.cordova.admob",
+    "com.ionic.keyboard",
+    "org.apache.cordova.splashscreen"
+  ],
+  "cordovaPlatforms": [
+    "android",
+    "ios"
   ]
 }

@@ -2,10 +2,18 @@
   angular.module('profeSearchStarter', ['ionic'])
   .run(function($ionicPlatform) {
     $ionicPlatform.ready(function() {
+    setTimeout(function() {
+        navigator.splashscreen.hide();
+    }, 400);
+
       if(window.cordova && window.cordova.plugins.Keyboard) {
-        cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
-        console.log(cordova.plugins.Keyboard)
-      }
+        window.cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
+        window.cordova.plugins.Keyboard.disableScroll(true);
+      } 
+
+
+
+
       if(window.StatusBar) {
         StatusBar.overlaysWebView(false);
         // StatusBar.style(1);
@@ -29,14 +37,14 @@
                 banner: 'ca-app-pub-xxx/zzz', // or DFP format "/6253334/dfp_example_ad"
             };
         }
-         // if(AdMob != undefined) 
-         //  AdMob.createBanner( {
-         //   adId:admobid.banner, 
-         //    position:AdMob.AD_POSITION.BOTTOM_CENTER, 
-         //    autoShow:false,
-         //    overlap:false, 
-         //    isTesting:true
-         //     } );
+         if(AdMob != undefined) 
+          AdMob.createBanner( {
+           adId:admobid.banner, 
+            position:AdMob.AD_POSITION.BOTTOM_CENTER, 
+            autoShow:false,
+            overlap:false, 
+            isTesting:true
+             } );
 
         });
       })

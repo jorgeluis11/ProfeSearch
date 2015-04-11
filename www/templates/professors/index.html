@@ -1,9 +1,9 @@
                 
     <!-- Splash Directive -->
-    <!-- <splash-screen fade="submit" fade-duration="1" fade-target="intro"></splash-screen> -->
+    <splash-screen fade="submit" fade-duration="1" fade-target="intro"></splash-screen>
     <!-- End Splash Screen -->
     <ion-view>
-      <ion-content  overflow-scroll="true">
+      <!-- <ion-content scroll="false" > -->
       <div id="header-custom" class="row">
         <div id="burger-container">
           <hamburger></hamburger>
@@ -17,7 +17,6 @@
         <div id="modal-black-background">
         </div>
       </div>
-    </div>
         <div id="search-row" class="row">
           <div id="search-target" class="col" >
             <form search-animation-event class="search-bar-size" ng-submit="jsonProf(query)" >
@@ -44,10 +43,9 @@
                 <select id="department-filter" class="dropdown-filter disabled" ng-model="department" ng-options="professor.department_name for professor in resultCopy | unique:'department_name' | orderBy:'department_name'" ng-change="updateProfessorList(department.department_name,'department_name')" disable target="body">
                  <option value="" selected>Todos los departamentos</option>
                 </select>
-                
-                <div style="clear:both;">
-                </div>
-          </div>        
+
+                <div style="clear:both;"></div>
+        </div>        
 
         <div id="prof-container" ng-show="createProf" class="animate-show">
             <center>
@@ -69,11 +67,12 @@
             </h3>
             </center>
         </div>
-        
-        <!-- professorsList Directive -->
+              <!-- <ion-scroll  direction="y" class="myScroll"> -->
+              <!-- professorsList Directive -->
         <professors-list></professors-list>
         <!-- End professorsList -->
-      </ion-content>
+               <!-- </ion-scroll> -->
+
 </ion-view>
 
 <div id="loading" ng-show="loading">
