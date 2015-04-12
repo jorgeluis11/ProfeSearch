@@ -2,9 +2,12 @@
     <!-- Splash Directive -->
     <splash-screen fade="submit" fade-duration="1" fade-target="intro"></splash-screen>
     <!-- End Splash Screen -->
+
     <ion-view>
-      <!-- <ion-content scroll="false" > -->
-      <div id="header-custom" class="row">
+          <ion-scroll direction="y" style="height: 101%">
+
+<!--       <ion-content overflow-sroll="true" >
+ -->      <div id="header-custom" class="row">
         <div id="burger-container">
           <hamburger></hamburger>
         </div>
@@ -44,7 +47,9 @@
                  <option value="" selected>Todos los departamentos</option>
                 </select>
 
-                <div style="clear:both;"></div>
+                <div style="clear:both;">
+                  
+                </div>
         </div>        
 
         <div id="prof-container" ng-show="createProf" class="animate-show">
@@ -72,6 +77,8 @@
         <professors-list></professors-list>
         <!-- End professorsList -->
                <!-- </ion-scroll> -->
+  <!-- </ion-content> -->
+  <ion-scroll>
 
 </ion-view>
 

@@ -79,8 +79,7 @@ angular.module('profeSearchStarter')
         if (university.match("Universidad de Puerto Rico"))
           value.university_name =  university.replace('Universidad de Puerto Rico', "UPR");
         else if(university.match("Universidad Interamericana"))
-          value.university_name =  university.replace('Universidad Interamericana', "Inter de");
-
+          value.university_name =  university.replace('Universidad Interamericana', "Interamericana de");
       });
       $scope.university = undefined;
       $scope.department = undefined;
@@ -144,7 +143,7 @@ angular.module('profeSearchStarter')
               $("#header-custom").css({"padding-top":"20px"});
               $("#title-modal").css({"padding-top":"12px"});
             }
-          }, 200);
+          }, 250);
 
         });
       });

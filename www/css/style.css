@@ -475,6 +475,14 @@ ion-content
 
 /*professor modal*/
 
+.modal-wrapper{
+  height: 100%;
+}
+
+
+.scroll{
+  height: auto;
+}
 
 #title-modal{
 	background-color:#0B4F85;
@@ -756,7 +764,7 @@ ion-content
   position: absolute;
   top: 0;
   left: 0;
-  height: 101%;
+  height: 200%;
   width: 100%;  
   z-index:888;
   display:none;
@@ -784,7 +792,28 @@ ion-content
       background-color: rgba(0,0,0,0.85);
   }
 }
+.modal-wrapper{
 
+}
+.modal-wrapper>.ionic-scroll{
+  height: inherit;
+}
+
+.modal-backdrop{
+  height: 100%;
+}
+
+.modal-wrapper>.ionic-scroll>.scroll{
+  height: 100% !important;
+}
+
+/*.modal{
+height: inherit;
+}*/
+
+/*.modal-backdrop-bg{
+  height: 95%;
+}*/
 .modal-black-background-close
 {
   position: absolute;
