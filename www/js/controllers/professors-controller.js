@@ -1,7 +1,6 @@
 angular.module('profeSearchStarter')
-.controller("professorController", ['$scope','$filter','$timeout', '$ionicModal','$ionicScrollDelegate','$ionicPlatform','Professor' ,
-  function($scope,$filter, $timeout, $ionicModal,$ionicScrollDelegate,$ionicPlatform, Professor){
-    $scope.loading = false;
+.controller("professorController", ['$scope','$ionicLoading','$filter','$timeout', '$ionicModal','$ionicScrollDelegate','$ionicPlatform','Professor' ,
+  function($scope, $ionicLoading, $filter, $timeout, $ionicModal,$ionicScrollDelegate,$ionicPlatform, Professor){
     $scope.professors = [];
     $scope.createProf = false;
     $scope.lastSearch = "";
@@ -15,7 +14,9 @@ angular.module('profeSearchStarter')
       {
         window.cordova.plugins.Keyboard.close();
       }
-
+      $ionicLoading.show({
+        templateUrl: 'templates/base/loading.html'
+      });
       $scope.filterFail = false;
 
       $("#modal-black-background, #cancel-search").unbind("click");
@@ -23,8 +24,6 @@ angular.module('profeSearchStarter')
       $("#filter-result").css("visibility","hidden");
       $("#filter-row").slideUp(200);
 
-
-      
       $("#search").blur();
           $("#cancel-search").fadeOut(200);
           $("#modal-black-background").fadeOut(200,function(){
@@ -36,7 +35,7 @@ angular.module('profeSearchStarter')
           $("#modal-black-background, #cancel-search").unbind("click");
       if( query !== undefined && query !== "")
       {
-                  $(".scroll").css("-webkit-transform","translate3d(0px, 0px, 0px) scale(1)");
+        $(".scroll").css("-webkit-transform","translate3d(0px, 0px, 0px) scale(1)");
         Professor.all(query)
         .success(function(data){
           if (data.next){
@@ -72,6 +71,7 @@ angular.module('profeSearchStarter')
     }
 
     function processData(data){
+      $ionicLoading.hide();
       $scope.professors = data;
       $scope.resultCopy = data.results;
       angular.forEach($scope.resultCopy, function(value, key){
@@ -123,7 +123,10 @@ angular.module('profeSearchStarter')
       {
         window.cordova.plugins.Keyboard.close();
       }
-      $scope.loading = true;
+      $ionicLoading.show({
+        templateUrl: 'templates/base/loading.html'
+      });
+  
       Professor.get(id)
       .success(function(data){
       $ionicModal.fromTemplateUrl('templates/professors/modal.html', {
@@ -134,16 +137,16 @@ angular.module('profeSearchStarter')
           $scope.modal = modal;
           $scope.modal.show();
           
-          $scope.loading = false;
+          $ionicLoading.hide();
           $scope.modal.profesor = data;
+          AdMob.showBanner(AdMob.AD_POSITION.BOTTOM_CENTER);
 
           setTimeout(function() {
-            AdMob.showBanner(AdMob.AD_POSITION.BOTTOM_CENTER);
             if(/(ipod|iphone|ipad)/i.test(navigator.userAgent)) { // for ios
               $("#header-custom").css({"padding-top":"20px"});
               $("#title-modal").css({"padding-top":"12px"});
             }
-          }, 250);
+          }, 200);
 
         });
       });

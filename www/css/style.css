@@ -13,10 +13,10 @@ body{
   height: 85.8%;
 }
 
-.scroll-content{
+/*.scroll-content{
   position: initial !important;
   margin:0 !important;
-}
+}*/
 
 
 /*Splash CSS*/
@@ -475,14 +475,14 @@ ion-content
 
 /*professor modal*/
 
-.modal-wrapper{
+/*.modal-wrapper{
   height: 100%;
 }
+*/
 
-
-.scroll{
+/*.scroll{
   height: auto;
-}
+}*/
 
 #title-modal{
 	background-color:#0B4F85;
@@ -751,20 +751,20 @@ ion-content
   font-family: Arial;
 }
 
-.modal-info
+/*.modal-info
 {
   position: absolute;
   top:7%;
   height:93%;
   background-color:rgba(0,0,0,0) !important;
-}
+}*/
 
 #modal-black-background
 {
   position: absolute;
   top: 0;
   left: 0;
-  height: 200%;
+  height: 350%;
   width: 100%;  
   z-index:888;
   display:none;
@@ -792,20 +792,25 @@ ion-content
       background-color: rgba(0,0,0,0.85);
   }
 }
-.modal-wrapper{
-
+/*.modal-wrapper{
+ height: 100%;
 }
 .modal-wrapper>.ionic-scroll{
   height: inherit;
 }
 
-.modal-backdrop{
+.modal-close{
+  height: 100%;
+  margin-bottom: 5%;
+}*/
+
+/*.modal-backdrop{
   height: 100%;
 }
 
 .modal-wrapper>.ionic-scroll>.scroll{
   height: 100% !important;
-}
+}*/
 
 /*.modal{
 height: inherit;
@@ -1515,4 +1520,11 @@ a.no-decoration
   to{
     opacity:0;
   }
+}
+
+.spinner svg {
+  width: 28px;
+  height: 28px;
+  stroke: white;
+  fill: white;
 }

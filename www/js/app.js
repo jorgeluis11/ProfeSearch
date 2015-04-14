@@ -17,7 +17,7 @@
       if(window.StatusBar) {
         StatusBar.overlaysWebView(false);
         // StatusBar.style(1);
-        StatusBar.backgroundColorByHexString('#0B4F84') //red
+        StatusBar.backgroundColorByHexString('#0B4F84') 
 
       } 
 

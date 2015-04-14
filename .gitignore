@@ -5,7 +5,7 @@ node_modules/
 platforms/
 plugins/
 hooks/
-
+resources/
 platforms/
 plugins/
 *.DS_Store

@@ -1,141 +1,134 @@
-        <ion-scroll direction="y"> 
+<div class="modal">
+<ion-content >
 
-  <div class="modal" >
-<!-- <ion-scroll direction="y" style="width:600px; height:100%;"> -->
-
-    <div ng-click="closeModal()">
-      <!-- <ion-content overflow-scroll="true"> -->
-      <div id="title-modal">
-        <div class="row">
-          <div class="col">
-            <center>
-            <h1>  {{modal.profesor.first_name}} {{modal.profesor.  last_name}}
-            </h1>
-            <p>
-              <h4>
-              <span class="professor-uni">
-                {{modal.profesor.university_name}}
+  <!-- <ion-scroll direction="y" style="width:600px; height:100%;"> -->
+  <div class="modal-close" ng-click="closeModal()">
+    <div id="title-modal">
+      <div class="row">
+        <div class="col">
+          <center>
+          <h1>  {{modal.profesor.first_name}} {{modal.profesor.  last_name}}
+          </h1>
+          <p>
+            <h4>
+            <span class="professor-uni">
+              {{modal.profesor.university_name}}
+            </span>
+            </h4>
+            <div class="department-label department-label-detail" id="department-detail">
+              <span class="department-label-form">
+                {{modal.profesor.department_name}}
               </span>
-              </h4>
-              <div class="department-label department-label-detail" id="department-detail">
-                <span class="department-label-form">
-                  {{modal.profesor.department_name}}
-                </span>
-              </div>
-            </p>
-            </center>
-          </div>
+            </div>
+          </p>
+          </center>
         </div>
       </div>
-      <center>
-      <div class="col professor-promedio">
-        <p class="professor-grade">
-          Promedio
-          <p/>
-            <p class="professor-percent">
-              <div  ng-view class="view-slide-in" ng-class="{'gradeAlrg': modal.profesor.score <= 1 && modal.profesor.score >= .90, gradeBlrg: modal.profesor.score <= .899 && modal.profesor.score >= .80,  gradeClrg: modal.profesor.score >= .70  && modal.profesor.score <= .799, gradeDlrg: modal.profesor.score >= .60 && modal.profesor.score <= .699, gradeFlrg: modal.profesor.score <= .599 }">
-              </div>
-              {{modal.profesor.score * 100 | number:2}}%
-            </p>
-            <div class="details">
-              <h2>
-              Detalles
-              </h2>
-              <!--<div class="professor-details">
-                <span class="ion-ios-chatbubble"></span>
-                <span class="count">
-                  11 Comentarios
-                </span>
-              </div>
-              <div class="professor-details">
+    </div>
+    <center>
+    <div class="col professor-promedio">
+      <p class="professor-grade">
+        Promedio
+        <p/>
+          <p class="professor-percent">
+            <div class="view-slide-in" ng-class="{'gradeAlrg': modal.profesor.score <= 1 && modal.profesor.score >= .90, gradeBlrg: modal.profesor.score <= .899 && modal.profesor.score >= .80,  gradeClrg: modal.profesor.score >= .70  && modal.profesor.score <= .799, gradeDlrg: modal.profesor.score >= .60 && modal.profesor.score <= .699, gradeFlrg: modal.profesor.score <= .599 }">
+            </div>
+            {{modal.profesor.score * 100 | number:2}}%
+          </p>
+          <div class="details">
+            <h2>
+            Detalles
+            </h2>
+            <!--<div class="professor-details">
+              <span class="ion-ios-chatbubble"></span>
+              <span class="count">
+                11 Comentarios
+              </span>
+            </div>
+            <div class="professor-details">
+              <span class="ion-android-checkbox-outline"></span>
+              <span class="count">{{modal.profesor.total_rates}} Evaluaciones</span>
+            </div>
+            -->
+            <!--<tr> <tr>
+              <td colspan="2">
                 <span class="ion-android-checkbox-outline"></span>
-                <span class="count">{{modal.profesor.total_rates}} Evaluaciones</span>
-              </div>
-              -->
-              <!--<tr> <tr>
-                <td colspan="2">
-                  <span class="ion-android-checkbox-outline"></span>
-                  <p>{{modal.profesor.total_rates}} Evaluaciones</p>
+                <p>{{modal.profesor.total_rates}} Evaluaciones</p>
+              </td>
+            </tr>
+            -->
+            <table id="table-detail">
+              <tr>
+                <td>
+                  <p>
+                    Responsabilidad
+                  </p>
+                  <div class="grade{{modal.profesor.responsability}}lrg">
+                  </div>
+                </td>
+                <td>
+                  <p>
+                    Personalidad
+                  </p>
+                  <div class="grade{{modal.profesor.personality}}lrg professor-details">
+                  </div>
                 </td>
               </tr>
-              -->
-              <table id="table-detail">
-                <tr>
-                  <td>
-                    <p>
-                      Responsabilidad
-                    </p>
-                    <div class="grade{{modal.profesor.responsability}}lrg">
-                    </div>
-                  </td>
-                  <td>
-                    <p>
-                      Personalidad
-                    </p>
-                    <div class="grade{{modal.profesor.personality}}lrg professor-details">
-                    </div>
-                  </td>
-                </tr>
-                <tr>
-                  <td>
-                    <p>Dificultad</p>
-                    <div ng-class="{gradeFlrg: modal.profesor.difficulty == 1, gradeDlrg: modal.profesor.difficulty == 2,gradeClrg: modal.profesor.difficulty == 3,gradeBlrg: modal.profesor.difficulty == 4,gradeAlrg: modal.profesor.difficulty == 5,}" class="professor-details">
-                    </div>
-                  </td>
-                  <td>
-                    <p>Trabajo</p>
-                    <div ng-class="{gradeFlrg: modal.profesor.workload == 1, gradeDlrg: modal.profesor.workload == 2,gradeClrg: modal.profesor.workload == 3,gradeBlrg: modal.profesor.workload == 4,gradeAlrg: modal.profesor.workload == 5,}" class="professor-details">
-                    </div>
-                  </td>
-                </tr>
-              </table>
-            </div>
+              <tr>
+                <td>
+                  <p>Dificultad</p>
+                  <div ng-class="{gradeFlrg: modal.profesor.difficulty == 1, gradeDlrg: modal.profesor.difficulty == 2,gradeClrg: modal.profesor.difficulty == 3,gradeBlrg: modal.profesor.difficulty == 4,gradeAlrg: modal.profesor.difficulty == 5,}" class="professor-details">
+                  </div>
+                </td>
+                <td>
+                  <p>Trabajo</p>
+                  <div ng-class="{gradeFlrg: modal.profesor.workload == 1, gradeDlrg: modal.profesor.workload == 2,gradeClrg: modal.profesor.workload == 3,gradeBlrg: modal.profesor.workload == 4,gradeAlrg: modal.profesor.workload == 5,}" class="professor-details">
+                  </div>
+                </td>
+              </tr>
+            </table>
           </div>
-          <h2 ng-show="modal.profesor.user_comments.entries">   {{modal.profesor.user_comments.total_comments}} Commentario<span ng-show="modal.profesor.user_comments.total_comments > 1">s</span>
-          </h2>
-          </center>
-          <div class="list list-comment" ng-repeat="comment in modal.profesor.user_comments.entries">
-            <a class="item">
-              <h2>
-              {{comment.name}}
-              </h2>
-              <p class="list-comment-body">
-                {{comment.body}}
-              </p>
-            </a>
-          </div>
-          <div id="modal-empty-comment" ng-hide="modal.profesor.user_comments.entries">
-            <center>
-            <h4 id="modal-no-comments">No hay commentarios, agrega uno en</h4>
-            <h2 id="modal-no-comments-title">
-            <a  href="#" ng-click="addComment(modal.profesor.slug)">
-              www.Notaso.com
-            </a>
-            </h2>
-            </br>
-            </center>
-          </div>
-          <div id="modal-empty-comment" ng-show="modal.profesor.user_comments.entries">
-            <center>
-            <h4>Agrega un comentario en</h4>
-            <h2 id="modal-no-comments-title">
-            <a  href="#" ng-click="addComment(modal.profesor.slug)">
-              www.Notaso.com
-            </a>
-            </h2>
-            <br>
-            </center>
-          </div>
-
-      </div>
-                            </ion-scroll>
-
-<!--               </ion-content>
-
         </div>
+        <h2 ng-show="modal.profesor.user_comments.entries">   {{modal.profesor.user_comments.total_comments}} Commentario<span ng-show="modal.profesor.user_comments.total_comments > 1">s</span>
+        </h2>
+        </center>
+        <div class="list list-comment" ng-repeat="comment in modal.profesor.user_comments.entries">
+          <a class="item">
+            <h2>
+            {{comment.name}}
+            </h2>
+            <p class="list-comment-body">
+              {{comment.body}}
+            </p>
+          </a>
+        </div>
+        <div id="modal-empty-comment" ng-hide="modal.profesor.user_comments.entries">
+          <center>
+          <h4 id="modal-no-comments">No hay commentarios, agrega uno en</h4>
+          <h2 id="modal-no-comments-title">
+          <a  href="#" ng-click="addComment(modal.profesor.slug)">
+            www.Notaso.com
+          </a>
+          </h2>
+          </br>
+          </center>
+        </div>
+        <div id="modal-empty-comment" ng-show="modal.profesor.user_comments.entries">
+          <center>
+          <h4>Agrega un comentario en</h4>
+          <h2 id="modal-no-comments-title">
+          <a  href="#" ng-click="addComment(modal.profesor.slug)">
+            www.Notaso.com
+          </a>
+          </h2>
+          <br>
+          </center>
+        </div>
+      </div>
+    </div>
   </div>
- -->   
+  </ion-content>
 
-    <!--  <ion-footer-bar align-title="left" id="footer-custom">
-    
-    </ion-footer-bar> -->
+</div>
+<!--  <ion-footer-bar align-title="left" id="footer-custom">
+</ion-footer-bar> -->
