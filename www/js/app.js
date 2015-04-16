@@ -4,7 +4,7 @@
     $ionicPlatform.ready(function() {
     setTimeout(function() {
         navigator.splashscreen.hide();
-    }, 400);
+    }, 450);
 
       if(window.cordova && window.cordova.plugins.Keyboard) {
         window.cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
@@ -43,7 +43,7 @@
             position:AdMob.AD_POSITION.BOTTOM_CENTER, 
             autoShow:false,
             overlap:false, 
-            isTesting:true
+            isTesting:false
              } );
 
         });

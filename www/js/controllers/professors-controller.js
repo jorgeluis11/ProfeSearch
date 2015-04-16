@@ -1,6 +1,6 @@
 angular.module('profeSearchStarter')
-.controller("professorController", ['$scope','$ionicLoading','$filter','$timeout', '$ionicModal','$ionicScrollDelegate','$ionicPlatform','Professor' ,
-  function($scope, $ionicLoading, $filter, $timeout, $ionicModal,$ionicScrollDelegate,$ionicPlatform, Professor){
+.controller("professorController", ['$scope','$ionicLoading','$filter','$timeout', '$ionicModal','$ionicPlatform','Professor' ,
+  function($scope, $ionicLoading, $filter, $timeout, $ionicModal,$ionicPlatform, Professor){
     $scope.professors = [];
     $scope.createProf = false;
     $scope.lastSearch = "";

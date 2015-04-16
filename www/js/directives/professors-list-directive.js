@@ -107,9 +107,9 @@ return{
 	return {
 		restrict: 'A',
 		link: function (scope, element, attrs) {
-			var target = $(element);
+			var target = $(element).children();
 			var filterTab = $("#"+attrs.show);
-			target.click(function(){
+			$(element).click(function(){
 				if (target.css("color") === "rgb(255, 255, 255)") {
 					target.css("color","#aaaaaa");
 					filterTab.slideDown(200);

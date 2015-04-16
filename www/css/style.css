@@ -383,15 +383,22 @@ ion-content
 }
 
 #filter-funnel{
-  float:left;
-  margin-left: 5px;
-  height: 20px;
-    margin-top: 8px;
+	text-align: right;
+  float: left;
+	height: 30px;
+	width: 40px;
+	margin-left: 2px;
+	margin-right: 2px;
+	margin-top: 8px;
 }
- 
+
+.ion-funnel::before{
+	margin-right:6px;
+}
 
 #filter-result{
-  visibility: hidden; font-size:2em; margin-right: 2px; color:white;z-index: 0;
+  font-size:2em;
+  color:white;z-index: 0;
 }
 /*.dropdown-filter{
   float:left;
@@ -896,9 +903,11 @@ a.no-decoration
   /*margin: 40px auto;*/
   position: relative;
   display: block;
-  height: 27px;
-  width: 27px;
-  padding-top: 5px;
+  height: 33px;
+	width: 32px;
+	margin-left: 7px;
+	margin-right: 4px;
+	padding-top: 5px;
   -webkit-touch-callout: none;
   -webkit-user-select: none;
      -moz-user-select: none;

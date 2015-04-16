@@ -14,8 +14,8 @@
         <h1 id="text-logo" style="float:left;">
            ProfeSearch
         </h1>
-        <div id="filter-funnel" >
-          <i id="filter-result" class="ion-funnel" filter ng-click="restartFilter('filter-result')" show="filter-row"></i>
+        <div id="filter-funnel" filter ng-click="restartFilter('filter-result')" show="filter-row">
+          <i id="filter-result" class="ion-funnel"  ></i>
         </div>
         <div id="modal-black-background">
         </div>
@@ -37,14 +37,14 @@
         </div>
         <div id="filter-row">
             <span >
-              Filter Result
+              Filtrar Resultados
             </span>
                 <select id="university-filter" class="dropdown-filter disabled" ng-model="university" ng-options="professor.university_name for professor in resultCopy | unique:'university_name' | orderBy:'university_name'" ng-change="updateProfessorList(university.university_name, 'university_name')" disable target="body">
                   <option value="" selected > Todas las Universidades</option>
                 </select>
           
                 <select id="department-filter" class="dropdown-filter disabled" ng-model="department" ng-options="professor.department_name for professor in resultCopy | unique:'department_name' | orderBy:'department_name'" ng-change="updateProfessorList(department.department_name,'department_name')" disable target="body">
-                 <option value="" selected>Todos los departamentos</option>
+                 <option value="" selected>Todos los Departamentos</option>
                 </select>
 
                 <div style="clear:both;">
