@@ -6,6 +6,8 @@ var sass = require('gulp-sass');
 var minifyCss = require('gulp-minify-css');
 var rename = require('gulp-rename');
 var sh = require('shelljs');
+var minifyHtml = require("gulp-minify-html");
+var uglify = require("gulp-uglify");
 
 var paths = {
   sass: ['./scss/**/*.scss']
@@ -13,16 +15,33 @@ var paths = {
 
 gulp.task('default', ['sass']);
 
+ 
+// task
+gulp.task('minify-html', function () {
+    gulp.src('./www/templates/') // path to your files
+    .pipe(minifyHtml())
+    .pipe(gulp.dest('./tes.html'));
+});
 gulp.task('sass', function(done) {
   gulp.src('./scss/ionic.app.scss')
     .pipe(sass())
-    .pipe(gulp.dest('./www/css/'))
+    .pipe(gulp.dest('./www/css/*.css'))
     .pipe(minifyCss({
       keepSpecialComments: 0
     }))
     .pipe(rename({ extname: '.min.css' }))
     .pipe(gulp.dest('./www/css/'))
     .on('end', done);
+});
+
+// including plugins
+ 
+// task
+gulp.task('minify-js', function () {
+    gulp.src('./www/js/**/*.js') // path to your files
+    .pipe(concat('javascript.min.js'))
+    .pipe(uglify())
+    .pipe(gulp.dest('./www/js/min'));
 });
 
 gulp.task('watch', function() {
@@ -34,6 +53,13 @@ gulp.task('install', ['git-check'], function() {
     .on('log', function(data) {
       gutil.log('bower', gutil.colors.cyan(data.id), data.message);
     });
+});
+
+gulp.task('minify-css', function () {
+    gulp.src('./www/css/*.css') // path to your file
+    .pipe(concat('style.css'))
+    .pipe(minifyCss())
+    .pipe(gulp.dest('./www/css/min'))
 });
 
 gulp.task('git-check', function(done) {
