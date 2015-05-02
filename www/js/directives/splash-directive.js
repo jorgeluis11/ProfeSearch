@@ -4,6 +4,19 @@ directive('splashScreen', [function ($scope) {
 		templateUrl: 'templates/base/splash.html',
 		restrict: 'E',
 		link: function(scope, element, attrs) {
+            // var agentIndex = deviceAgent.indexOf('Android');
+            // if (agentIndex != -1) {
+            //    var androidversion = parseFloat(deviceAgent.match(/Android\s+([\d\.]+)/)[1]);
+            //    if (androidversion < 4.4)
+            //    {
+            //     alert(androidversion);
+            //        var targetElement = $('#' + attrs.fadeTarget);
+            //         targetElement.hide().remove();  
+            //     }
+                
+            // }
+            //                 alert(androidversion);
+
             scope.about = attrs.about;
             var fadeDuration = attrs.fadeDuration || 1000;
             var onEvent = attrs.fade || click;

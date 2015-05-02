@@ -758,20 +758,35 @@ ion-content
   font-family: Arial;
 }
 
-/*.modal-info
+.modal-info
 {
   position: absolute;
   top:7%;
   height:93%;
   background-color:rgba(0,0,0,0) !important;
-}*/
+}
 
 #modal-black-background
 {
   position: absolute;
   top: 0;
   left: 0;
-  height: 350%;
+  height: 550%;
+  width: 100%;  
+  z-index:888;
+  display:none;
+  -webkit-animation: background-animation .2s ease-in forwards;
+  -o-animation: background-animation .2s ease-in forwards;
+  animation: background-animation .2s ease-in forwards;
+  background-color: rgba(0,0,0,.85);
+}
+
+#modal-black-background2
+{
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 1000%;
   width: 100%;  
   z-index:888;
   display:none;
@@ -872,7 +887,7 @@ height: inherit;
 
 }
 
-a[link]
+a[link],a[social-group]
 {
     color:white;
 }
@@ -885,17 +900,26 @@ a.no-decoration
 /*SVG Animation*/
 #burger-container{
   float:left;
-  margin-left: 5px;
+  /*margin-left: 5px;*/
   height: 20px;
-    margin-top: 8px;
+    /*margin-top: 8px;*/
    -webkit-transform: translate3d(0px,0px,0px);
     -webkit-backface-visibility: hidden;
     transform: translate3d(0px,0px,0px);
     backface-visibility: visible;
       z-index: 99999999;
-      visibility: hidden;
+      /*visibility: hidden;*/
 
 }
+
+.social-media-like{
+  font-size: 1.8em;
+  display: inline-block;
+  height: 44px;
+  width: 44px;
+  margin: 5px;
+}
+
 .hamburglar {
   /*-webkit-transform: scale(1);
       -ms-transform: scale(1);
@@ -908,6 +932,7 @@ a.no-decoration
 	margin-left: 7px;
 	margin-right: 4px;
 	padding-top: 5px;
+  margin-top: 5px;
   -webkit-touch-callout: none;
   -webkit-user-select: none;
      -moz-user-select: none;

@@ -1,6 +1,6 @@
 {
   "name": "notaso",
-  "version": "1.0.0",
+  "version": "0.1.1",
   "description": "notaso: An Ionic project",
   "dependencies": {
     "express": "^4.11.2",

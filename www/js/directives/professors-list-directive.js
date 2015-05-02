@@ -27,16 +27,16 @@ return{
 	         	$(".burger-filling").addClass("burger-fill-ios");
 	         }
  		 trigger.click(function () {
-            if (isClosed === true) {
-            isClosed = false;              
+            if (trigger.hasClass('is-open')) {
+            	isClosed = false;              
               	trigger.removeClass('is-open');
                 trigger.addClass('is-closed');	          
               scope.modal.hide();
       		  scope.modal.remove();
       		  $("body").removeClass("click-event");
-      		  $("#modal-black-background").fadeOut(200);
+      		  $("#modal-black-background2").fadeOut(200);
       		  $(".modal-backdrop").fadeOut(200);
-            } else {
+            } else if(trigger.hasClass('is-closed')){
               trigger.removeClass('is-closed');
               trigger.addClass('is-open');
               isClosed = true;
@@ -49,7 +49,7 @@ return{
 		          scope.modal = modal;
 		          scope.modal.show()
 		          $(modal.$el[0]).addClass("modal-info");
-		          $("#modal-black-background").show();
+		          $("#modal-black-background2").show();
         	});
 		    }
           });         
@@ -160,7 +160,10 @@ return{
 		        }).then(function(modal) {
 		          $scope.modal = modal;
 		          $scope.modal.show()
-		        });
+		          setTimeout(function() {
+		          	$("#intro-logo").css("top","0%");
+		          }, 100);
+		        })
 			}
 
 			  $scope.closeModal = function() {
@@ -177,8 +180,35 @@ return{
 		scope:{},
 		link:function(scope,element,attrs){
 			element.on('click',function(){
-				    window.open(attrs.url, '_system', 'location=yes');
+				    window.open(attrs.url, '_system', 'location=yes');    	
 			});
 		}	
+	};
+}]).directive('socialGroup', [function () {
+	return {
+		restrict: 'A',
+		scope:{},
+		link: function (scope, element, attrs) {
+			element.on('click',function(){
+			window.open(attrs.url, '_system', 'location=yes');    	
+				if (attrs.url.match("twitter") || attrs.url.match("instagram") || attrs.url.match("pinterest") || attrs.url.match("gplus")) 
+					window.open(attrs.alternative, '_system', 'location=yes');
+
+			});
+		}
+	};
+}]).directive('rateApp', [function () {
+	return {
+		restrict: 'A',
+		scope:{},
+		link: function (scope, element, attrs) {
+		element.on('click',function()
+		{
+			if (/(ipod|iphone|ipad)/i.test(navigator.userAgent)) // for ios) {
+        		window.open('itms-apps://ax.itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?type=ProfeSearch&id=id985709320'); // or itms://
+	    	else if (/(android)/i.test(navigator.userAgent)) 
+		        window.open('market://details?id=com.ionicframework.notaso683473');
+		}
+		});
 	};
 }]);
