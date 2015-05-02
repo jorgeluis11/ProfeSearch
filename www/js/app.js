@@ -1,5 +1,5 @@
 // (function(){
-  angular.module('profeSearchStarter', ['ionic'])
+  angular.module('profeSearchStarter', ['ionic', 'ngCordova'])
   .run(function($ionicPlatform) {
     $ionicPlatform.ready(function() {
     setTimeout(function() {

@@ -43,6 +43,19 @@ angular.module('profeSearchStarter')
           }
           else
             processData(data)
+        }).error(function(){
+          $(".search-bar-label").removeClass("search-bar-label-animation-less").addClass("search-bar-label-animation-more");
+          $("#search").val("").blur();
+          $scope.createProf = true;
+          $scope.professors = [];
+          $scope.resultCopy = [];
+          $("#filter-result").css("visibility","hidden");
+          $("#filter-row").slideUp(200);
+                $ionicLoading.hide();
+
+          alert("No se puede encontrar el profesor si no hay señal o no esta conectado al internet.");
+
+          
         });
       }
       else{
@@ -63,7 +76,17 @@ angular.module('profeSearchStarter')
               for(result in dataPage2.results)
                 data.results.push(dataPage2.results[result]);
               data.next = dataPage2.next;
-              nextPage(data, query);
+              nextPage(data, query).error(function(){
+                $(".search-bar-label").removeClass("search-bar-label-animation-less").addClass("search-bar-label-animation-more");
+                $("#search").val("").blur();
+                $scope.createProf = true;
+                $scope.professors = [];
+                $scope.resultCopy = [];
+                $("#filter-result").css("visibility","hidden");
+                $("#filter-row").slideUp(200);
+                alert("No se puede encontrar el profesor si no hay señal o no esta conectado al internet.")
+                 
+              });
             });
       }else{
         return processData(data);
@@ -149,6 +172,9 @@ angular.module('profeSearchStarter')
           }, 200);
 
         });
+      }).error(function(){
+        $ionicLoading.hide();
+        alert("No se puede encontrar el profesor si no hay señal o no esta conectado al internet.")
       });
   };
 
