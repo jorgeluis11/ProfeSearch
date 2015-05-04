@@ -22,15 +22,25 @@ directive('splashScreen', [function ($scope) {
             var onEvent = attrs.fade || click;
 
             element.on(onEvent, function() {
+
                 if(window.cordova && window.cordova.plugins.Keyboard)
                   {
                     window.cordova.plugins.Keyboard.close();
                   }
                 $("#search").val("");
                 var targetElement = $('#' + attrs.fadeTarget);
+                 // setTimeout(function() {
+                    AdMob.showBanner(AdMob.AD_POSITION.BOTTOM_CENTER);
+                if(/(ipod|iphone|ipad)/i.test(navigator.userAgent)) { // for ios
+                      $("#header-custom").css({"padding-top":"20px"});
+                      // $("#title-modal").css({"padding-top":"12px"});
+                    }
+                  // }, 1);
                 targetElement.fadeOut(700,function(){
                 	//Remove Parent
                 	element.remove();
+                   
+                    
                 });             
             });
         }

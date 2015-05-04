@@ -162,14 +162,14 @@ angular.module('profeSearchStarter')
           
           $ionicLoading.hide();
           $scope.modal.profesor = data;
-          AdMob.showBanner(AdMob.AD_POSITION.BOTTOM_CENTER);
+          // AdMob.showBanner(AdMob.AD_POSITION.BOTTOM_CENTER);
 
-          setTimeout(function() {
-            if(/(ipod|iphone|ipad)/i.test(navigator.userAgent)) { // for ios
-              $("#header-custom").css({"padding-top":"20px"});
-              $("#title-modal").css({"padding-top":"12px"});
-            }
-          }, 200);
+          // setTimeout(function() {
+          //   if(/(ipod|iphone|ipad)/i.test(navigator.userAgent)) { // for ios
+          //     $("#header-custom").css({"padding-top":"20px"});
+          //     $("#title-modal").css({"padding-top":"12px"});
+          //   }
+          // }, 200);
 
         });
       }).error(function(){
@@ -197,7 +197,7 @@ angular.module('profeSearchStarter')
   };
 
    $scope.$on('modal.hidden', function() {
-          AdMob.hideBanner();
+          // AdMob.hideBanner();
    });
 
 

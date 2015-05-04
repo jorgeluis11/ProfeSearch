@@ -479,6 +479,22 @@ ion-content
 	margin-top: 20px;
 }
 
+/*list create professor*/
+#list-create-professor{
+  width: 100%;
+  height: 90px;
+  text-align: center;
+  background-color: #0B4F84;
+}
+
+#list-create-professor>h3{
+    color: white !important;
+}
+
+#list-create-professor>h3>a
+{
+  color:white;
+}
 
 /*professor modal*/
 
@@ -521,7 +537,7 @@ ion-content
 .list{
   height: auto;
     margin-bottom: 0 !important; 
-
+  padding-top: 0 !important;
 }
 
 .list2{
@@ -746,12 +762,12 @@ ion-content
 #info{
 
   color:white;
-  margin-top: 25%;
+  margin-top: 20%;
 }
 
 #info h1{
   color:white;
-  font-size: 3em;
+  font-size: 2.8em;
   margin-top: 8%;
     margin-bottom: 8%;
 
