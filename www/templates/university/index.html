@@ -1,1 +1,28 @@
-Profesores
+<university-header></university-header>
+<ion-scroll  direction="y" style="height: 94%">
+	<ion-list>
+		<ion-item class="list university-list animate-repeat" ng-repeat="university in universities.results | filter:search:name" >
+			<div>
+				<img ng-show="university.emblem !== '' " ng-src="{{url}}{{university.emblem}}" lazy-scroll-resize="true" alt="">
+
+				<img ng-hide="university.emblem !== '' " ng-src="img/noimage80.png" lazy-scroll-resize="true" alt="">
+				<div class="university-info">
+					<h3>
+						{{university.name}}
+					</h3>
+					<h4>
+						{{university.city}}
+					</h4>
+					<p>
+					<span>
+						{{university.professors_count}}
+					</span>
+					Profesor<text ng-show="university.professors_count > 1 || university.professors_count === 1">es</text>
+				</div>
+				<div class="clear">
+				</div>
+				<hr>
+			</div>
+		</ion-item>
+	</ion-list>
+</ion-scroll>

@@ -13,6 +13,10 @@ body{
   height: 85.8%;
 }
 
+.clear{
+  clear:both;
+}
+
 /*.scroll-content{
   position: initial !important;
   margin:0 !important;
@@ -414,6 +418,7 @@ ion-content
 
 /*End Filter*/
 
+/*Professor List*/
 .professor-list{
 	height: 65px;
   padding-right: 0 !important;
@@ -433,14 +438,15 @@ ion-content
 
 .department-label{
 	display: inline-block;
-	height: 23px;
+	height: 22px;
 	background-color:#d9534f;
+  border-radius: 5px;
 }
 
 .department-label-form
 {
-	padding: .2em .6em .3em;
-	font-size: 85%;
+	padding: 4px;
+  font-size: 80%;
 	font-weight: 700;
 	line-height: 1;
 	color: #fff;
@@ -482,13 +488,14 @@ ion-content
 /*list create professor*/
 #list-create-professor{
   width: 100%;
-  height: 90px;
+  height: 94px;
   text-align: center;
   background-color: #0B4F84;
 }
 
 #list-create-professor>h3{
     color: white !important;
+    padding-top: 2px;
 }
 
 #list-create-professor>h3>a
@@ -538,13 +545,14 @@ ion-content
   height: auto;
     margin-bottom: 0 !important; 
   padding-top: 0 !important;
-}
+  /*padding-bottom: 0 !important;*/
+  }
 
 .list2{
   height: auto;
   margin-bottom: 0 !important; 
 }
-
+ist-comment
 .hide-scroll::-webkit-scrollbar { width: 0 !important }
 
 
@@ -560,7 +568,7 @@ ion-content
 {
 	margin-bottom: 0;
 	padding-bottom: 0;
-	border-top: 1px solid rgba(0,0,0,0.1);
+	border-top: 2px solid rgba(0,0,0,0.1);
 
 }
 
@@ -639,6 +647,98 @@ ion-content
 #modal-no-comments-title>a
 {
 	display: block;
+}
+
+/*University List*/
+.university-list{
+  height: 100%;  
+  padding-right: 0 !important;
+}
+
+.university-list>div>img
+{
+  width: 80px;
+  height: 73px;
+  margin-left: 5px;
+  float: left;
+
+}
+
+.university-info
+{
+  display: block;
+  /*float: left;*/
+  margin-top: 5px;
+  font-size: 1em;
+  margin-left:5px;
+  height: 100%;
+  overflow: hidden;
+
+}
+
+.university-info>h3{
+  color:#222222;
+  font-size: 0.85em;
+  /*text-overflow: ellipsis;*/
+  margin:2px 0;
+}
+
+.university-info>h4{
+  /*float:left;*/
+  margin:1px 0;
+
+  display: inline-block;
+  background-color:#d9534f;
+  font-weight: 700;
+  line-height: 1;
+  color: #fff;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: .25em;
+  padding:2px;
+  margin:2px 0;
+
+}
+
+.university-info>p
+{
+  /*position: absolute;
+  right: 0;*/
+  /*float:left;*/
+  display: block;
+  font-weight: 700;
+  line-height: 1;
+  color: #fff;
+  white-space: nowrap;
+  vertical-align: baseline;
+  font-size: .74em;
+  margin-right: 5px;
+  color:black;
+  font-weight: normal;
+
+
+}
+
+.university-info>p>span
+{
+  display: inline-block;
+    text-align: center;
+    border-radius: .25em !important;
+      padding:2px;
+      color:white;
+      background-color: #428bca;
+        font-weight: bold;
+
+
+}
+
+.university-list>div>hr
+{
+  margin-left: 5px;
+  margin-right: 5px;
+  border: 1px solid rgba(150,150,150,0.2) !important;
+  margin-bottom:5px;
 }
 
 .view-slide-in.ng-enter {
@@ -753,6 +853,8 @@ ion-content
 	border-bottom: 1px solid rgba(0, 0, 0, 0.1) !important;
 }
 
+
+
 .activated{
 	background:none !important;
 }
@@ -762,7 +864,7 @@ ion-content
 #info{
 
   color:white;
-  margin-top: 20%;
+  margin-top: 36%;
 }
 
 #info h1{

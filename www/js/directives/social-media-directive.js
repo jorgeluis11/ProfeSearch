@@ -14,7 +14,7 @@ angular.module("profeSearchStarter")
 		          $scope.modal.show()
 		          setTimeout(function() {
 		          	$("#intro-logo").css("top","0%");
-		          }, 100);
+		          }, 20);
 		        })
 			}
 
@@ -26,7 +26,8 @@ angular.module("profeSearchStarter")
 
 			$scope.changeState = function(name)
 			{
-		       $state.go(name);
+				 $scope.closeModal();
+		       	$state.go(name);  
      		}
 		}]
 	};

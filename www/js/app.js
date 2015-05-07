@@ -1,10 +1,10 @@
 // (function(){
-  angular.module('profeSearchStarter', ['ionic', 'ngCordova'])
+  angular.module('profeSearchStarter', ['ionic', 'ngCordova', 'ionicLazyLoad'])
   .run(function($ionicPlatform) {
     $ionicPlatform.ready(function() {
-    // setTimeout(function() {
-    //     navigator.splashscreen.hide();
-    // }, 450);
+    setTimeout(function() {
+        navigator.splashscreen.hide();
+    }, 450);
 
       if(window.cordova && window.cordova.plugins.Keyboard) {
         window.cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
@@ -17,8 +17,6 @@
         StatusBar.backgroundColorByHexString('#0B4F84') 
 
       } 
-
-      // if(window.plugins && window.plugins.AdMob) {
 
         var admobid = {};
         if( /(android)/i.test(navigator.userAgent) ) { // for android
@@ -34,14 +32,14 @@
                 banner: 'ca-app-pub-xxx/zzz', // or DFP format "/6253334/dfp_example_ad"
             };
         }
-         // if(AdMob != undefined) 
-         //  AdMob.createBanner( {
-         //   adId:admobid.banner, 
-         //    position:AdMob.AD_POSITION.BOTTOM_CENTER, 
-         //    autoShow:false,
-         //    overlap:false, 
-         //    isTesting:false
-         //     } );
+         if(AdMob != undefined) 
+          AdMob.createBanner( {
+           adId:admobid.banner, 
+            position:AdMob.AD_POSITION.BOTTOM_CENTER, 
+            autoShow:false,
+            overlap:false, 
+            isTesting:false
+             } );
 
         });
       })
@@ -63,7 +61,7 @@
     $stateProvider.state('university', {
         url: '/university',
         templateUrl: 'templates/university/index.html',
-        controller:"professorController"
+        controller:"universityController"
       });
     
     $urlRouterProvider.otherwise('/search');

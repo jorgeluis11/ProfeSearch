@@ -1,6 +1,7 @@
 angular.module('profeSearchStarter')
 .controller("professorController", ['$scope','$ionicLoading','$filter','$timeout', '$ionicModal','$ionicPlatform','Professor' ,
   function($scope, $ionicLoading, $filter, $timeout, $ionicModal,$ionicPlatform, Professor){
+    $scope.existFirstTime = false;
     $scope.professors = [];
     $scope.createProf = false;
     $scope.lastSearch = "";
@@ -67,7 +68,6 @@ angular.module('profeSearchStarter')
         $("#filter-result").css("visibility","hidden");
         $("#filter-row").slideUp(200);
       }
-      
     };
 
     function nextPage(data,query){
@@ -114,12 +114,14 @@ angular.module('profeSearchStarter')
             $scope.createProf = true;
             $("#filter-row").slideUp(200);
 
+
           }
           else{
             $scope.createProf = false;
             if (data.count > 1) 
               $("#filter-result").css("visibility","visible");
           }
+          $scope.existFirstTime = true;
         
     }
 
@@ -162,14 +164,12 @@ angular.module('profeSearchStarter')
           
           $ionicLoading.hide();
           $scope.modal.profesor = data;
-          // AdMob.showBanner(AdMob.AD_POSITION.BOTTOM_CENTER);
 
-          // setTimeout(function() {
-          //   if(/(ipod|iphone|ipad)/i.test(navigator.userAgent)) { // for ios
-          //     $("#header-custom").css({"padding-top":"20px"});
-          //     $("#title-modal").css({"padding-top":"12px"});
-          //   }
-          // }, 200);
+          setTimeout(function() {
+            if(/(ipod|iphone|ipad)/i.test(navigator.userAgent)) { // for ios
+              $("#title-modal").css({"padding-top":"12px"});
+            }
+          }, 100);
 
         });
       }).error(function(){
@@ -192,12 +192,10 @@ angular.module('profeSearchStarter')
 
   $scope.closeModal = function() {
     $scope.modal.hide();
-      $scope.modal.remove();
-    // $scope.modal.remove();
+    $scope.modal.remove();
   };
 
    $scope.$on('modal.hidden', function() {
-          // AdMob.hideBanner();
    });
 
 

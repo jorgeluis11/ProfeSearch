@@ -50,13 +50,12 @@
               <span class="count">{{modal.profesor.total_rates}} Evaluaciones</span>
             </div>
             -->
-            <!--<tr> <tr>
+            <tr> <tr>
               <td colspan="2">
-                <span class="ion-android-checkbox-outline"></span>
-                <p>{{modal.profesor.total_rates}} Evaluaciones</p>
+                
+                <p><span class="ion-android-checkbox-outline"></span> {{modal.profesor.total_rates}} Evaluacion<span ng-show="modal.profesor.total_rates > 1">es</span></p>
               </td>
             </tr>
-            -->
             <table id="table-detail">
               <tr>
                 <td>
@@ -89,7 +88,7 @@
             </table>
           </div>
         </div>
-        <h2 ng-show="modal.profesor.user_comments.entries">   {{modal.profesor.user_comments.total_comments}} Commentario<span ng-show="modal.profesor.user_comments.total_comments > 1">s</span>
+        <h2 ng-show="modal.profesor.user_comments.entries">   {{modal.profesor.user_comments.total_comments}} Comentario<span ng-show="modal.profesor.user_comments.total_comments > 1">s</span>
         </h2>
         </center>
         <div class="list list-comment" ng-repeat="comment in modal.profesor.user_comments.entries">
@@ -102,7 +101,32 @@
             </p>
           </a>
         </div>
-        <div id="modal-empty-comment" ng-hide="modal.profesor.user_comments.entries">
+
+        <div ng-hide="modal.profesor.user_comments.entries">
+          <hr style="margin-bottom: 0px; border-bottom-width: 0px;">
+          <div id="list-create-professor" >
+            <h3> No Hay Comentario
+            <br>
+            ¡Creálo!
+            <br>
+            <a href="#" ng-click="addComment(modal.profesor.slug)">
+                www.Notaso.com
+            </a>
+            </h3>
+          </div>
+        </div>
+
+        <div id="list-create-professor" ng-show="modal.profesor.user_comments.entries">
+          <h3> ¿Pocos Comentarios?
+          <br>
+          ¡Creálo!
+          <br>
+          <a href="#" ng-click="addComment(modal.profesor.slug)">
+              www.Notaso.com
+          </a>
+          </h3>
+        </div>
+        <!-- <div id="modal-empty-comment" ng-hide="modal.profesor.user_comments.entries">
           <center>
           <h4 id="modal-no-comments">No hay commentarios, agrega uno en</h4>
           <h2 id="modal-no-comments-title">
@@ -112,8 +136,8 @@
           </h2>
           </br>
           </center>
-        </div>
-        <div id="modal-empty-comment" ng-show="modal.profesor.user_comments.entries">
+        </div> -->
+        <!-- <div id="modal-empty-comment" ng-show="modal.profesor.user_comments.entries">
           <center>
           <h4>Agrega un comentario en</h4>
           <h2 id="modal-no-comments-title">
@@ -123,7 +147,7 @@
           </h2>
           <br>
           </center>
-        </div>
+        </div> -->
       </div>
     </div>
   </div>
