@@ -1,5 +1,6 @@
 // (function(){
-  angular.module('profeSearchStarter', ['ionic', 'ngCordova', 'ionicLazyLoad'])
+  // , 'ionicLazyLoad'
+  angular.module('profeSearchStarter', ['ionic', 'ngCordova'])
   .run(function($ionicPlatform) {
     $ionicPlatform.ready(function() {
     setTimeout(function() {
@@ -58,11 +59,11 @@
         controller:"professorController"
       });
 
-    $stateProvider.state('university', {
-        url: '/university',
-        templateUrl: 'templates/university/index.html',
-        controller:"universityController"
-      });
+    // $stateProvider.state('university', {
+    //     url: '/university',
+    //     templateUrl: 'templates/university/index.html',
+    //     controller:"universityController"
+    //   });
     
     $urlRouterProvider.otherwise('/search');
   
